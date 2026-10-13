@@ -1,22 +1,14 @@
 # Smart Notes
 
-A serverless platform for sharing, searching and listening to class notes, built on 18 AWS services.
+A serverless platform on AWS for sharing, searching and listening to class notes.
 
-Students upload a photo or PDF of their notes into a private class group. AWS reads the text, tags the topics, records an audio version and emails classmates who follow the subject. Notes can then be searched by topic, asked about through a chatbot, read in Hindi, Telugu or Tamil, and played aloud.
-
-Built for the Cloud Architecture course by:
-
-| Name | Registration no. |
-|---|---|
-| Rishva Reddy | 24BDE0090 |
-| Shreya Shylesh | 24BDE0145 |
-| Vedika Saboo | 24BDE0101 |
+Upload a photo or PDF of notes into a private group. Smart Notes reads the text, tags the topics, records an audio version and emails group members who follow the subject. Notes can then be searched by topic, found through a chatbot, read in Hindi, Telugu or Tamil, and played aloud.
 
 ## Features
 
-- **Private groups.** Create a group, share its 8-character invite code, and only members see its notes. The group's creator verifies or hides notes and can remove members.
+- **Private groups.** Create a group, share its 8-character invite code, and only members see its notes. The group's admin verifies or hides notes and can remove members.
 - **Automatic processing.** Every upload is checked for unsafe images, read, tagged, turned into an MP3 and marked ready in about a minute.
-- **Topic search.** Search by topic ("vpc peering", "deadlock") or browse by subject. Multi-word topics and acronyms like VPC and SQL work.
+- **Topic search.** Search by topic ("vpc peering", "deadlock") or browse by subject. Multi-word topics and acronyms like VPC and SQL are supported.
 - **Assistant.** Ask "do we have notes on paging?" through an Amazon Lex chatbot.
 - **Text and audio in four languages.** English text with Polly audio; Hindi translation with Polly audio; Telugu and Tamil translations read by the browser's voice.
 - **Email alerts.** Follow subjects and get an email when a note is added to them in your groups, plus a weekly digest of the most-opened notes.
@@ -36,7 +28,7 @@ ACROSS EVERYTHING
 IAM, KMS, CloudWatch, CloudTrail, CloudFormation, EventBridge (Sunday digest)
 ```
 
-Everything runs in **ap-southeast-2 (Sydney)**. There are no EC2 instances, load balancers or VPC resources: Lambda replaces servers, API Gateway and CloudFront handle traffic and scaling, and access is controlled with IAM, Cognito, private S3 buckets and KMS encryption.
+Fully serverless, deployed in **ap-southeast-2 (Sydney)**. There are no EC2 instances, load balancers or VPC resources: Lambda runs the code, API Gateway and CloudFront handle traffic and scaling, and access is controlled with IAM, Cognito, private S3 buckets and KMS encryption.
 
 ## AWS services
 
@@ -63,15 +55,15 @@ Everything runs in **ap-southeast-2 (Sydney)**. There are no EC2 instances, load
 
 Outside AWS: **Groq** (model `openai/gpt-oss-120b`) for translation, the **pypdf** library for reading PDFs, and the browser's speech synthesis for Telugu and Tamil audio.
 
-### Blocked services
+### Service substitutions
 
-The AWS organization our account belongs to denies Textract, Comprehend and Translate through a service control policy. We replaced them:
+This deployment runs in an AWS account whose organization blocks Textract, Comprehend and Translate through a service control policy, so it uses alternatives:
 
-| Planned | Replaced by |
+| Usual service | Used instead |
 |---|---|
 | Textract | Rekognition `DetectText` for photos, pypdf for typed PDFs |
 | Comprehend | Word-frequency tags (acronyms kept, filler words removed) |
-| Translate | Groq API, cached after the first request. The code still tries Translate first. |
+| Translate | Groq API, cached after the first request. The code tries Translate first and falls back to Groq. |
 
 ## Repository layout
 
@@ -81,13 +73,13 @@ site/index.html                     the whole website (plain HTML, CSS and JavaS
 vendor/pypdf/                       pypdf, bundled into pipeReadText
 deploy/
   build.py                          zips the changed functions into deploy/build/
-  1-pipeline-fix.sh                 pipeline fixes and Rekognition text reading
+  1-pipeline-fix.sh                 pipeline and Rekognition text reading
   2-lex-bot.sh                      creates the Lex bot and connects the chat function
   3-cloudtrail.sh                   creates the CloudTrail trail and log bucket
   4-cloudformation.sh               generates the CloudFormation template
   5-groups.sh                       groups feature, new indexes and routes, website upload
   assign-notes.sh                   moves notes without a group into a group
-  rollback.sh                       restores functions from the saved backup versions
+  rollback.sh                       restores functions from saved backup versions
   smartnotesaccess-policy.json      the IAM policy for smartnotesrole
   SmartNotes-template.yaml          generated CloudFormation template
 ```
@@ -97,7 +89,7 @@ deploy/
 The scripts use an AWS CLI profile named `smartnotes` and check they are pointed at the right account before changing anything.
 
 ```bash
-aws login --profile smartnotes --region ap-southeast-2   # sign in to the project account
+aws login --profile smartnotes --region ap-southeast-2   # sign in to the account
 python3 deploy/build.py                                  # rebuild the function zips
 ```
 
@@ -121,7 +113,7 @@ aws cloudfront create-invalidation --distribution-id <id> --paths '/*' --profile
 
 | Variable | Value |
 |---|---|
-| `GROQ_API_KEY` | your key from console.groq.com |
+| `GROQ_API_KEY` | a key from console.groq.com |
 | `GROQ_MODEL` | `openai/gpt-oss-120b` |
 
 ## Known limits
