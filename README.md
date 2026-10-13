@@ -15,17 +15,107 @@ Upload a photo or PDF of notes into a private group. Smart Notes reads the text,
 
 ## Architecture
 
+### Components
+
+```mermaid
+flowchart LR
+    user(["Student (browser)"])
+
+    subgraph frontend["Frontend"]
+        cf["CloudFront"]
+        site[("S3: website")]
+        cognito["Cognito<br/>sign-in"]
+    end
+
+    subgraph api["API layer"]
+        apigw["API Gateway<br/>HTTP API + JWT authorizer"]
+        apifn["Lambda: API functions<br/>createNote, searchNotes, getNote,<br/>translateNote, moderateNote,<br/>subscribe, chat, groups"]
+    end
+
+    subgraph data["Data and AI"]
+        ddb[("DynamoDB<br/>Notes, Tags, Groups")]
+        lex["Lex bot<br/>SmartNotesBot"]
+        lexfn["Lambda: lexFulfill"]
+        polly["Polly"]
+        groq["Groq API<br/>(outside AWS)"]
+    end
+
+    subgraph pipeline["Upload pipeline"]
+        notes[("S3: notes bucket<br/>KMS encrypted")]
+        sqs["SQS queue<br/>+ dead-letter queue"]
+        start["Lambda: startPipeline"]
+        sfn["Step Functions<br/>SmartNotesPipeline"]
+        rek["Rekognition"]
+    end
+
+    subgraph ops["Operations"]
+        eb["EventBridge<br/>Sunday schedule"]
+        digest["Lambda: weeklyDigest"]
+        sns["SNS<br/>email topics"]
+        cw["CloudWatch<br/>logs + alarms"]
+        trail["CloudTrail"]
+    end
+
+    user -->|"loads site"| cf --> site
+    user -->|"signs in"| cognito
+    user -->|"API calls + ID token"| apigw --> apifn
+    user -->|"uploads via presigned URL"| notes
+
+    apifn --> ddb
+    apifn -->|"chat"| lex --> lexfn --> ddb
+    apifn -->|"Hindi audio"| polly
+    apifn -->|"translation"| groq
+    apifn -->|"alert subscriptions"| sns
+
+    notes -->|"object created"| sqs --> start --> sfn
+    sfn -->|"moderation + text"| rek
+    sfn -->|"note audio"| polly
+    sfn -->|"tags + status"| ddb
+    sfn -->|"new-note email"| sns
+
+    eb --> digest --> sns
+    sfn -.->|"failed runs"| cw
+    sqs -.->|"dead letters"| cw
+    cw -->|"alarm email"| sns
 ```
-USING THE APP
-Browser -> CloudFront + S3 (website) -> Cognito (sign-in) -> API Gateway (JWT check) -> Lambda -> DynamoDB / Lex / Polly / Groq
 
-PROCESSING AN UPLOAD
-Browser -(presigned URL)-> S3 notes/ -> SQS -> startPipeline -> Step Functions:
-    CheckSafety (Rekognition) -> ReadText (Rekognition / pypdf) -> TagTopics -> MakeAudio (Polly) -> SaveAndNotify (DynamoDB, SNS)
-    any failure -> MarkFailed -> CloudWatch alarm -> email
+IAM roles, KMS encryption, CloudTrail auditing and the CloudFormation template apply across all of these.
 
-ACROSS EVERYTHING
-IAM, KMS, CloudWatch, CloudTrail, CloudFormation, EventBridge (Sunday digest)
+### Processing an upload
+
+```mermaid
+sequenceDiagram
+    autonumber
+    actor S as Student
+    participant API as API Gateway + createNote
+    participant S3 as S3 notes bucket
+    participant Q as SQS
+    participant SF as Step Functions
+    participant RK as Rekognition
+    participant P as Polly
+    participant DB as DynamoDB
+    participant N as SNS
+
+    S->>API: POST /notes (title, subject, group)
+    API->>DB: save note as PROCESSING
+    API-->>S: 5-minute presigned upload URL
+    S->>S3: PUT file
+    S3->>Q: object created event
+    Q->>SF: startPipeline starts SmartNotesPipeline
+    SF->>RK: check image safety
+    alt unsafe image
+        SF->>DB: mark HIDDEN, stop
+    else safe
+        SF->>RK: read text (photos) or pypdf (PDFs)
+        SF->>S3: save text/
+        SF->>DB: save topic tags
+        SF->>P: synthesize audio
+        P-->>SF: MP3
+        SF->>S3: save audio/
+        SF->>DB: mark READY
+        SF->>N: email followers in the group
+    end
+    Note over SF,DB: Any failed step retries twice, then MarkFailed sets FAILED and a CloudWatch alarm emails the team
 ```
 
 Fully serverless, deployed in **ap-southeast-2 (Sydney)**. There are no EC2 instances, load balancers or VPC resources: Lambda runs the code, API Gateway and CloudFront handle traffic and scaling, and access is controlled with IAM, Cognito, private S3 buckets and KMS encryption.
