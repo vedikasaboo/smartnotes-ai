@@ -1,0 +1,14 @@
+createNote 1
+searchNotes 1
+getNote 2
+translateNote 2
+moderateNote 1
+subscribe 2
+chat 2
+lexFulfill 2
+startPipeline 1
+pipeTagNote 2
+pipeSaveNotify 1
+translateNote 3
+translateNote 4
+translateNote 5

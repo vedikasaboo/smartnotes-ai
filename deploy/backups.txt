@@ -1,0 +1,7 @@
+pipeReadText 1
+pipeTagNote 1
+getNote 1
+subscribe 1
+translateNote 1
+lexFulfill 1
+chat 1

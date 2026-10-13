@@ -1,0 +1,2499 @@
+---
+Metadata:
+  AWSToolsMetrics:
+    IaC_Generator: "arn:aws:cloudformation:ap-southeast-2:775545827739:generatedTemplate/0679ffb3-ec62-47b5-9897-45132da879fe"
+Parameters:
+  LambdaFunctionSubscribeCodeZipFile6rotr:
+    NoEcho: "true"
+    Type: "String"
+    Description: "(Node.js and Python) The source code of your Lambda function. If\
+      \ you include your function source inline with this parameter, CFN places it\
+      \ in a file named ``index`` and zips it to create a [deployment package](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html).\
+      \ This zip file cannot exceed 4MB. For the ``Handler`` property, the first part\
+      \ of the handler identifier must be ``index``. For example, ``index.handler``.\n\
+      \  When you specify source code inline for a Node.js function, the ``index``\
+      \ file that CFN creates uses the extension ``.js``. This means that Node.js\
+      \ treats the file as a CommonJS module.\n When using Node.js 24 or later, Node.js\
+      \ can automatically detect if a ``.js`` file should be treated as CommonJS or\
+      \ as an ES module. To enable auto-detection, add the ``--experimental-detect-module``\
+      \ flag to the ``NODE_OPTIONS`` environment variable. For more information, see\
+      \ [Experimental Node.js features](https://docs.aws.amazon.com//lambda/latest/dg/lambda-nodejs.html#nodejs-experimental-features).\n\
+      \   For JSON, you must escape quotes and special characters such as newline\
+      \ (``\\n``) with a backslash.\n If you specify a function that interacts with\
+      \ an AWS CloudFormation custom resource, you don't have to write your own functions\
+      \ to send responses to the custom resource that invoked the function. AWS CloudFormation\
+      \ provides a response module ([cfn-response](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-lambda-function-code-cfnresponsemodule.html))\
+      \ that simplifies sending responses. See [Using Lambda with CloudFormation](https://docs.aws.amazon.com/lambda/latest/dg/services-cloudformation.html)\
+      \ for details."
+  LambdaFunctionPipeCheckTextCodeS3ObjectStorageModewLjZD:
+    NoEcho: "true"
+    Type: "String"
+    Description: "Specifies the storage mode for the deployment package. Use ``COPY``\
+      \ to store the package in LAMlong-managed storage. Use ``REFERENCE`` to read\
+      \ the package directly from the Amazon S3 bucket. If omitted, the default is\
+      \ ``COPY``.Possible values: [COPY, REFERENCE]\nThis property can be replaced\
+      \ with other types"
+  LambdaFunctionSubscribeCodeS3ObjectVersiong1BQJ:
+    NoEcho: "true"
+    Type: "String"
+    Description: "For versioned objects, the version of the deployment package object\
+      \ to use."
+  LambdaFunctionLexFulfillCodeImageUriPo0nU:
+    NoEcho: "true"
+    Type: "String"
+    Description: "URI of a [container image](https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html)\
+      \ in the Amazon ECR registry."
+  LambdaFunctionPipeCheckSafetyCodeS3BucketXwnmn:
+    NoEcho: "true"
+    Type: "String"
+    Description: "An Amazon S3 bucket in the same AWS-Region as your function. The\
+      \ bucket can be in a different AWS-account."
+  LambdaFunctionLexFulfillCodeS3ObjectStorageModeHZW6b:
+    NoEcho: "true"
+    Type: "String"
+    Description: "Specifies the storage mode for the deployment package. Use ``COPY``\
+      \ to store the package in LAMlong-managed storage. Use ``REFERENCE`` to read\
+      \ the package directly from the Amazon S3 bucket. If omitted, the default is\
+      \ ``COPY``.Possible values: [COPY, REFERENCE]\nThis property can be replaced\
+      \ with other types"
+  LambdaFunctionModerateNoteCodeS3ObjectStorageModeTIvxd:
+    NoEcho: "true"
+    Type: "String"
+    Description: "Specifies the storage mode for the deployment package. Use ``COPY``\
+      \ to store the package in LAMlong-managed storage. Use ``REFERENCE`` to read\
+      \ the package directly from the Amazon S3 bucket. If omitted, the default is\
+      \ ``COPY``.Possible values: [COPY, REFERENCE]\nThis property can be replaced\
+      \ with other types"
+  LambdaFunctionPipeReadTextCodeSourceKMSKeyArnzuLLA:
+    NoEcho: "true"
+    Type: "String"
+    Description: "The ARN of the KMSlong (KMS) customer managed key that's used to\
+      \ encrypt your function's .zip deployment package. If you don't provide a customer\
+      \ managed key, Lambda uses an [owned key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-owned-cmk)."
+  LambdaFunctionLexFulfillCodeSourceKMSKeyArnLnnwA:
+    NoEcho: "true"
+    Type: "String"
+    Description: "The ARN of the KMSlong (KMS) customer managed key that's used to\
+      \ encrypt your function's .zip deployment package. If you don't provide a customer\
+      \ managed key, Lambda uses an [owned key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-owned-cmk)."
+  LambdaFunctionPipeTagNoteCodeS3ObjectStorageModeNav7d:
+    NoEcho: "true"
+    Type: "String"
+    Description: "Specifies the storage mode for the deployment package. Use ``COPY``\
+      \ to store the package in LAMlong-managed storage. Use ``REFERENCE`` to read\
+      \ the package directly from the Amazon S3 bucket. If omitted, the default is\
+      \ ``COPY``.Possible values: [COPY, REFERENCE]\nThis property can be replaced\
+      \ with other types"
+  LambdaFunctionPipeCheckSafetyCodeS3ObjectVersionMentW:
+    NoEcho: "true"
+    Type: "String"
+    Description: "For versioned objects, the version of the deployment package object\
+      \ to use."
+  LambdaFunctionChatCodeZipFilejYYqE:
+    NoEcho: "true"
+    Type: "String"
+    Description: "(Node.js and Python) The source code of your Lambda function. If\
+      \ you include your function source inline with this parameter, CFN places it\
+      \ in a file named ``index`` and zips it to create a [deployment package](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html).\
+      \ This zip file cannot exceed 4MB. For the ``Handler`` property, the first part\
+      \ of the handler identifier must be ``index``. For example, ``index.handler``.\n\
+      \  When you specify source code inline for a Node.js function, the ``index``\
+      \ file that CFN creates uses the extension ``.js``. This means that Node.js\
+      \ treats the file as a CommonJS module.\n When using Node.js 24 or later, Node.js\
+      \ can automatically detect if a ``.js`` file should be treated as CommonJS or\
+      \ as an ES module. To enable auto-detection, add the ``--experimental-detect-module``\
+      \ flag to the ``NODE_OPTIONS`` environment variable. For more information, see\
+      \ [Experimental Node.js features](https://docs.aws.amazon.com//lambda/latest/dg/lambda-nodejs.html#nodejs-experimental-features).\n\
+      \   For JSON, you must escape quotes and special characters such as newline\
+      \ (``\\n``) with a backslash.\n If you specify a function that interacts with\
+      \ an AWS CloudFormation custom resource, you don't have to write your own functions\
+      \ to send responses to the custom resource that invoked the function. AWS CloudFormation\
+      \ provides a response module ([cfn-response](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-lambda-function-code-cfnresponsemodule.html))\
+      \ that simplifies sending responses. See [Using Lambda with CloudFormation](https://docs.aws.amazon.com/lambda/latest/dg/services-cloudformation.html)\
+      \ for details."
+  LambdaFunctionGetNoteCodeS3ObjectStorageModeRrmAc:
+    NoEcho: "true"
+    Type: "String"
+    Description: "Specifies the storage mode for the deployment package. Use ``COPY``\
+      \ to store the package in LAMlong-managed storage. Use ``REFERENCE`` to read\
+      \ the package directly from the Amazon S3 bucket. If omitted, the default is\
+      \ ``COPY``.Possible values: [COPY, REFERENCE]\nThis property can be replaced\
+      \ with other types"
+  LambdaFunctionPipeMarkFailedCodeSourceKMSKeyArndM4e8:
+    NoEcho: "true"
+    Type: "String"
+    Description: "The ARN of the KMSlong (KMS) customer managed key that's used to\
+      \ encrypt your function's .zip deployment package. If you don't provide a customer\
+      \ managed key, Lambda uses an [owned key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-owned-cmk)."
+  LambdaFunctionTranslateNoteCodeS3Bucketza95R:
+    NoEcho: "true"
+    Type: "String"
+    Description: "An Amazon S3 bucket in the same AWS-Region as your function. The\
+      \ bucket can be in a different AWS-account."
+  LambdaFunctionModerateNoteCodeS3KeyAhYUb:
+    NoEcho: "true"
+    Type: "String"
+    Description: "The Amazon S3 key of the deployment package."
+  LambdaFunctionServiceCheckCodeImageUriaLP1h:
+    NoEcho: "true"
+    Type: "String"
+    Description: "URI of a [container image](https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html)\
+      \ in the Amazon ECR registry."
+  LambdaFunctionSearchNotesCodeS3ObjectStorageModejxbif:
+    NoEcho: "true"
+    Type: "String"
+    Description: "Specifies the storage mode for the deployment package. Use ``COPY``\
+      \ to store the package in LAMlong-managed storage. Use ``REFERENCE`` to read\
+      \ the package directly from the Amazon S3 bucket. If omitted, the default is\
+      \ ``COPY``.Possible values: [COPY, REFERENCE]\nThis property can be replaced\
+      \ with other types"
+  LambdaFunctionSearchNotesCodeZipFileL6iWq:
+    NoEcho: "true"
+    Type: "String"
+    Description: "(Node.js and Python) The source code of your Lambda function. If\
+      \ you include your function source inline with this parameter, CFN places it\
+      \ in a file named ``index`` and zips it to create a [deployment package](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html).\
+      \ This zip file cannot exceed 4MB. For the ``Handler`` property, the first part\
+      \ of the handler identifier must be ``index``. For example, ``index.handler``.\n\
+      \  When you specify source code inline for a Node.js function, the ``index``\
+      \ file that CFN creates uses the extension ``.js``. This means that Node.js\
+      \ treats the file as a CommonJS module.\n When using Node.js 24 or later, Node.js\
+      \ can automatically detect if a ``.js`` file should be treated as CommonJS or\
+      \ as an ES module. To enable auto-detection, add the ``--experimental-detect-module``\
+      \ flag to the ``NODE_OPTIONS`` environment variable. For more information, see\
+      \ [Experimental Node.js features](https://docs.aws.amazon.com//lambda/latest/dg/lambda-nodejs.html#nodejs-experimental-features).\n\
+      \   For JSON, you must escape quotes and special characters such as newline\
+      \ (``\\n``) with a backslash.\n If you specify a function that interacts with\
+      \ an AWS CloudFormation custom resource, you don't have to write your own functions\
+      \ to send responses to the custom resource that invoked the function. AWS CloudFormation\
+      \ provides a response module ([cfn-response](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-lambda-function-code-cfnresponsemodule.html))\
+      \ that simplifies sending responses. See [Using Lambda with CloudFormation](https://docs.aws.amazon.com/lambda/latest/dg/services-cloudformation.html)\
+      \ for details."
+  LambdaFunctionPipeSaveNotifyCodeImageUriZIcoP:
+    NoEcho: "true"
+    Type: "String"
+    Description: "URI of a [container image](https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html)\
+      \ in the Amazon ECR registry."
+  LambdaFunctionPipeSaveNotifyCodeS3Key2s43M:
+    NoEcho: "true"
+    Type: "String"
+    Description: "The Amazon S3 key of the deployment package."
+  LambdaFunctionServiceCheckCodeZipFilejcpIk:
+    NoEcho: "true"
+    Type: "String"
+    Description: "(Node.js and Python) The source code of your Lambda function. If\
+      \ you include your function source inline with this parameter, CFN places it\
+      \ in a file named ``index`` and zips it to create a [deployment package](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html).\
+      \ This zip file cannot exceed 4MB. For the ``Handler`` property, the first part\
+      \ of the handler identifier must be ``index``. For example, ``index.handler``.\n\
+      \  When you specify source code inline for a Node.js function, the ``index``\
+      \ file that CFN creates uses the extension ``.js``. This means that Node.js\
+      \ treats the file as a CommonJS module.\n When using Node.js 24 or later, Node.js\
+      \ can automatically detect if a ``.js`` file should be treated as CommonJS or\
+      \ as an ES module. To enable auto-detection, add the ``--experimental-detect-module``\
+      \ flag to the ``NODE_OPTIONS`` environment variable. For more information, see\
+      \ [Experimental Node.js features](https://docs.aws.amazon.com//lambda/latest/dg/lambda-nodejs.html#nodejs-experimental-features).\n\
+      \   For JSON, you must escape quotes and special characters such as newline\
+      \ (``\\n``) with a backslash.\n If you specify a function that interacts with\
+      \ an AWS CloudFormation custom resource, you don't have to write your own functions\
+      \ to send responses to the custom resource that invoked the function. AWS CloudFormation\
+      \ provides a response module ([cfn-response](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-lambda-function-code-cfnresponsemodule.html))\
+      \ that simplifies sending responses. See [Using Lambda with CloudFormation](https://docs.aws.amazon.com/lambda/latest/dg/services-cloudformation.html)\
+      \ for details."
+  LambdaFunctionPipeTagNoteCodeS3ObjectVersionQFj1w:
+    NoEcho: "true"
+    Type: "String"
+    Description: "For versioned objects, the version of the deployment package object\
+      \ to use."
+  LambdaFunctionSearchNotesCodeImageUri4i6X1:
+    NoEcho: "true"
+    Type: "String"
+    Description: "URI of a [container image](https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html)\
+      \ in the Amazon ECR registry."
+  LambdaFunctionPipeReadTextCodeS3ObjectVersion47KUx:
+    NoEcho: "true"
+    Type: "String"
+    Description: "For versioned objects, the version of the deployment package object\
+      \ to use."
+  LambdaFunctionPipeMakeAudioCodeS3BucketV0WIQ:
+    NoEcho: "true"
+    Type: "String"
+    Description: "An Amazon S3 bucket in the same AWS-Region as your function. The\
+      \ bucket can be in a different AWS-account."
+  LambdaFunctionPipeReadTextCodeS3KeyijeNt:
+    NoEcho: "true"
+    Type: "String"
+    Description: "The Amazon S3 key of the deployment package."
+  LambdaFunctionModerateNoteCodeS3BucketRd62Y:
+    NoEcho: "true"
+    Type: "String"
+    Description: "An Amazon S3 bucket in the same AWS-Region as your function. The\
+      \ bucket can be in a different AWS-account."
+  LambdaFunctionServiceCheckCodeS3KeyzmyLf:
+    NoEcho: "true"
+    Type: "String"
+    Description: "The Amazon S3 key of the deployment package."
+  LambdaFunctionWeeklyDigestCodeS3ObjectStorageMode5MhFe:
+    NoEcho: "true"
+    Type: "String"
+    Description: "Specifies the storage mode for the deployment package. Use ``COPY``\
+      \ to store the package in LAMlong-managed storage. Use ``REFERENCE`` to read\
+      \ the package directly from the Amazon S3 bucket. If omitted, the default is\
+      \ ``COPY``.Possible values: [COPY, REFERENCE]\nThis property can be replaced\
+      \ with other types"
+  LambdaFunctionPipeMakeAudioCodeS3ObjectVersionb362U:
+    NoEcho: "true"
+    Type: "String"
+    Description: "For versioned objects, the version of the deployment package object\
+      \ to use."
+  LambdaFunctionSubscribeCodeSourceKMSKeyArnoYP99:
+    NoEcho: "true"
+    Type: "String"
+    Description: "The ARN of the KMSlong (KMS) customer managed key that's used to\
+      \ encrypt your function's .zip deployment package. If you don't provide a customer\
+      \ managed key, Lambda uses an [owned key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-owned-cmk)."
+  LambdaFunctionPipeSaveNotifyCodeS3BucketOaLzT:
+    NoEcho: "true"
+    Type: "String"
+    Description: "An Amazon S3 bucket in the same AWS-Region as your function. The\
+      \ bucket can be in a different AWS-account."
+  LambdaFunctionGetNoteCodeSourceKMSKeyArnkTlsq:
+    NoEcho: "true"
+    Type: "String"
+    Description: "The ARN of the KMSlong (KMS) customer managed key that's used to\
+      \ encrypt your function's .zip deployment package. If you don't provide a customer\
+      \ managed key, Lambda uses an [owned key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-owned-cmk)."
+  LambdaFunctionPipeReadTextCodeS3BucketyS5S6:
+    NoEcho: "true"
+    Type: "String"
+    Description: "An Amazon S3 bucket in the same AWS-Region as your function. The\
+      \ bucket can be in a different AWS-account."
+  LambdaFunctionPipeMarkFailedCodeS3ObjectStorageModemg5bl:
+    NoEcho: "true"
+    Type: "String"
+    Description: "Specifies the storage mode for the deployment package. Use ``COPY``\
+      \ to store the package in LAMlong-managed storage. Use ``REFERENCE`` to read\
+      \ the package directly from the Amazon S3 bucket. If omitted, the default is\
+      \ ``COPY``.Possible values: [COPY, REFERENCE]\nThis property can be replaced\
+      \ with other types"
+  LambdaFunctionGetNoteCodeImageUriL7sZ7:
+    NoEcho: "true"
+    Type: "String"
+    Description: "URI of a [container image](https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html)\
+      \ in the Amazon ECR registry."
+  LambdaFunctionModerateNoteCodeSourceKMSKeyArn0y2eY:
+    NoEcho: "true"
+    Type: "String"
+    Description: "The ARN of the KMSlong (KMS) customer managed key that's used to\
+      \ encrypt your function's .zip deployment package. If you don't provide a customer\
+      \ managed key, Lambda uses an [owned key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-owned-cmk)."
+  LambdaFunctionCreateNoteCodeZipFileSKspC:
+    NoEcho: "true"
+    Type: "String"
+    Description: "(Node.js and Python) The source code of your Lambda function. If\
+      \ you include your function source inline with this parameter, CFN places it\
+      \ in a file named ``index`` and zips it to create a [deployment package](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html).\
+      \ This zip file cannot exceed 4MB. For the ``Handler`` property, the first part\
+      \ of the handler identifier must be ``index``. For example, ``index.handler``.\n\
+      \  When you specify source code inline for a Node.js function, the ``index``\
+      \ file that CFN creates uses the extension ``.js``. This means that Node.js\
+      \ treats the file as a CommonJS module.\n When using Node.js 24 or later, Node.js\
+      \ can automatically detect if a ``.js`` file should be treated as CommonJS or\
+      \ as an ES module. To enable auto-detection, add the ``--experimental-detect-module``\
+      \ flag to the ``NODE_OPTIONS`` environment variable. For more information, see\
+      \ [Experimental Node.js features](https://docs.aws.amazon.com//lambda/latest/dg/lambda-nodejs.html#nodejs-experimental-features).\n\
+      \   For JSON, you must escape quotes and special characters such as newline\
+      \ (``\\n``) with a backslash.\n If you specify a function that interacts with\
+      \ an AWS CloudFormation custom resource, you don't have to write your own functions\
+      \ to send responses to the custom resource that invoked the function. AWS CloudFormation\
+      \ provides a response module ([cfn-response](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-lambda-function-code-cfnresponsemodule.html))\
+      \ that simplifies sending responses. See [Using Lambda with CloudFormation](https://docs.aws.amazon.com/lambda/latest/dg/services-cloudformation.html)\
+      \ for details."
+  LambdaFunctionPipeCheckTextCodeS3BucketnKnyb:
+    NoEcho: "true"
+    Type: "String"
+    Description: "An Amazon S3 bucket in the same AWS-Region as your function. The\
+      \ bucket can be in a different AWS-account."
+  LambdaFunctionPipeMakeAudioCodeImageUri5vt6U:
+    NoEcho: "true"
+    Type: "String"
+    Description: "URI of a [container image](https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html)\
+      \ in the Amazon ECR registry."
+  LambdaFunctionGetNoteCodeS3BucketHgu2x:
+    NoEcho: "true"
+    Type: "String"
+    Description: "An Amazon S3 bucket in the same AWS-Region as your function. The\
+      \ bucket can be in a different AWS-account."
+  LambdaFunctionPipeMakeAudioCodeS3ObjectStorageModecMaoj:
+    NoEcho: "true"
+    Type: "String"
+    Description: "Specifies the storage mode for the deployment package. Use ``COPY``\
+      \ to store the package in LAMlong-managed storage. Use ``REFERENCE`` to read\
+      \ the package directly from the Amazon S3 bucket. If omitted, the default is\
+      \ ``COPY``.Possible values: [COPY, REFERENCE]\nThis property can be replaced\
+      \ with other types"
+  LambdaFunctionGetNoteCodeZipFileYoaJq:
+    NoEcho: "true"
+    Type: "String"
+    Description: "(Node.js and Python) The source code of your Lambda function. If\
+      \ you include your function source inline with this parameter, CFN places it\
+      \ in a file named ``index`` and zips it to create a [deployment package](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html).\
+      \ This zip file cannot exceed 4MB. For the ``Handler`` property, the first part\
+      \ of the handler identifier must be ``index``. For example, ``index.handler``.\n\
+      \  When you specify source code inline for a Node.js function, the ``index``\
+      \ file that CFN creates uses the extension ``.js``. This means that Node.js\
+      \ treats the file as a CommonJS module.\n When using Node.js 24 or later, Node.js\
+      \ can automatically detect if a ``.js`` file should be treated as CommonJS or\
+      \ as an ES module. To enable auto-detection, add the ``--experimental-detect-module``\
+      \ flag to the ``NODE_OPTIONS`` environment variable. For more information, see\
+      \ [Experimental Node.js features](https://docs.aws.amazon.com//lambda/latest/dg/lambda-nodejs.html#nodejs-experimental-features).\n\
+      \   For JSON, you must escape quotes and special characters such as newline\
+      \ (``\\n``) with a backslash.\n If you specify a function that interacts with\
+      \ an AWS CloudFormation custom resource, you don't have to write your own functions\
+      \ to send responses to the custom resource that invoked the function. AWS CloudFormation\
+      \ provides a response module ([cfn-response](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-lambda-function-code-cfnresponsemodule.html))\
+      \ that simplifies sending responses. See [Using Lambda with CloudFormation](https://docs.aws.amazon.com/lambda/latest/dg/services-cloudformation.html)\
+      \ for details."
+  LambdaFunctionCreateNoteCodeSourceKMSKeyArnsY2vI:
+    NoEcho: "true"
+    Type: "String"
+    Description: "The ARN of the KMSlong (KMS) customer managed key that's used to\
+      \ encrypt your function's .zip deployment package. If you don't provide a customer\
+      \ managed key, Lambda uses an [owned key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-owned-cmk)."
+  LambdaFunctionGetNoteCodeS3ObjectVersionFSl8R:
+    NoEcho: "true"
+    Type: "String"
+    Description: "For versioned objects, the version of the deployment package object\
+      \ to use."
+  LambdaFunctionWeeklyDigestCodeZipFile7gxwp:
+    NoEcho: "true"
+    Type: "String"
+    Description: "(Node.js and Python) The source code of your Lambda function. If\
+      \ you include your function source inline with this parameter, CFN places it\
+      \ in a file named ``index`` and zips it to create a [deployment package](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html).\
+      \ This zip file cannot exceed 4MB. For the ``Handler`` property, the first part\
+      \ of the handler identifier must be ``index``. For example, ``index.handler``.\n\
+      \  When you specify source code inline for a Node.js function, the ``index``\
+      \ file that CFN creates uses the extension ``.js``. This means that Node.js\
+      \ treats the file as a CommonJS module.\n When using Node.js 24 or later, Node.js\
+      \ can automatically detect if a ``.js`` file should be treated as CommonJS or\
+      \ as an ES module. To enable auto-detection, add the ``--experimental-detect-module``\
+      \ flag to the ``NODE_OPTIONS`` environment variable. For more information, see\
+      \ [Experimental Node.js features](https://docs.aws.amazon.com//lambda/latest/dg/lambda-nodejs.html#nodejs-experimental-features).\n\
+      \   For JSON, you must escape quotes and special characters such as newline\
+      \ (``\\n``) with a backslash.\n If you specify a function that interacts with\
+      \ an AWS CloudFormation custom resource, you don't have to write your own functions\
+      \ to send responses to the custom resource that invoked the function. AWS CloudFormation\
+      \ provides a response module ([cfn-response](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-lambda-function-code-cfnresponsemodule.html))\
+      \ that simplifies sending responses. See [Using Lambda with CloudFormation](https://docs.aws.amazon.com/lambda/latest/dg/services-cloudformation.html)\
+      \ for details."
+  LambdaFunctionPipeTagNoteCodeS3KeyTdvhz:
+    NoEcho: "true"
+    Type: "String"
+    Description: "The Amazon S3 key of the deployment package."
+  LambdaFunctionSubscribeCodeS3BucketaAudT:
+    NoEcho: "true"
+    Type: "String"
+    Description: "An Amazon S3 bucket in the same AWS-Region as your function. The\
+      \ bucket can be in a different AWS-account."
+  LambdaFunctionPipeReadTextCodeS3ObjectStorageModea7YcD:
+    NoEcho: "true"
+    Type: "String"
+    Description: "Specifies the storage mode for the deployment package. Use ``COPY``\
+      \ to store the package in LAMlong-managed storage. Use ``REFERENCE`` to read\
+      \ the package directly from the Amazon S3 bucket. If omitted, the default is\
+      \ ``COPY``.Possible values: [COPY, REFERENCE]\nThis property can be replaced\
+      \ with other types"
+  LambdaFunctionChatCodeSourceKMSKeyArn9Xpzz:
+    NoEcho: "true"
+    Type: "String"
+    Description: "The ARN of the KMSlong (KMS) customer managed key that's used to\
+      \ encrypt your function's .zip deployment package. If you don't provide a customer\
+      \ managed key, Lambda uses an [owned key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-owned-cmk)."
+  LambdaFunctionChatCodeS3KeyQnlq8:
+    NoEcho: "true"
+    Type: "String"
+    Description: "The Amazon S3 key of the deployment package."
+  LambdaFunctionServiceCheckCodeS3BucketKP1zu:
+    NoEcho: "true"
+    Type: "String"
+    Description: "An Amazon S3 bucket in the same AWS-Region as your function. The\
+      \ bucket can be in a different AWS-account."
+  LambdaFunctionModerateNoteCodeS3ObjectVersionDivMV:
+    NoEcho: "true"
+    Type: "String"
+    Description: "For versioned objects, the version of the deployment package object\
+      \ to use."
+  LambdaFunctionPipeMarkFailedCodeS3KeyWRPUe:
+    NoEcho: "true"
+    Type: "String"
+    Description: "The Amazon S3 key of the deployment package."
+  LambdaFunctionWeeklyDigestCodeS3BucketQhivV:
+    NoEcho: "true"
+    Type: "String"
+    Description: "An Amazon S3 bucket in the same AWS-Region as your function. The\
+      \ bucket can be in a different AWS-account."
+  LambdaFunctionPipeCheckTextCodeSourceKMSKeyArnw4jm5:
+    NoEcho: "true"
+    Type: "String"
+    Description: "The ARN of the KMSlong (KMS) customer managed key that's used to\
+      \ encrypt your function's .zip deployment package. If you don't provide a customer\
+      \ managed key, Lambda uses an [owned key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-owned-cmk)."
+  LambdaFunctionStartPipelineCodeS3ObjectVersion4VzLk:
+    NoEcho: "true"
+    Type: "String"
+    Description: "For versioned objects, the version of the deployment package object\
+      \ to use."
+  LambdaFunctionTranslateNoteCodeS3ObjectVersionap1uw:
+    NoEcho: "true"
+    Type: "String"
+    Description: "For versioned objects, the version of the deployment package object\
+      \ to use."
+  LambdaFunctionLexFulfillCodeS3BucketyieDX:
+    NoEcho: "true"
+    Type: "String"
+    Description: "An Amazon S3 bucket in the same AWS-Region as your function. The\
+      \ bucket can be in a different AWS-account."
+  LambdaFunctionCreateNoteCodeS3KeyPCI3e:
+    NoEcho: "true"
+    Type: "String"
+    Description: "The Amazon S3 key of the deployment package."
+  LambdaFunctionPipeCheckTextCodeS3ObjectVersionk4Js2:
+    NoEcho: "true"
+    Type: "String"
+    Description: "For versioned objects, the version of the deployment package object\
+      \ to use."
+  LambdaFunctionPipeCheckTextCodeZipFilecOhVv:
+    NoEcho: "true"
+    Type: "String"
+    Description: "(Node.js and Python) The source code of your Lambda function. If\
+      \ you include your function source inline with this parameter, CFN places it\
+      \ in a file named ``index`` and zips it to create a [deployment package](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html).\
+      \ This zip file cannot exceed 4MB. For the ``Handler`` property, the first part\
+      \ of the handler identifier must be ``index``. For example, ``index.handler``.\n\
+      \  When you specify source code inline for a Node.js function, the ``index``\
+      \ file that CFN creates uses the extension ``.js``. This means that Node.js\
+      \ treats the file as a CommonJS module.\n When using Node.js 24 or later, Node.js\
+      \ can automatically detect if a ``.js`` file should be treated as CommonJS or\
+      \ as an ES module. To enable auto-detection, add the ``--experimental-detect-module``\
+      \ flag to the ``NODE_OPTIONS`` environment variable. For more information, see\
+      \ [Experimental Node.js features](https://docs.aws.amazon.com//lambda/latest/dg/lambda-nodejs.html#nodejs-experimental-features).\n\
+      \   For JSON, you must escape quotes and special characters such as newline\
+      \ (``\\n``) with a backslash.\n If you specify a function that interacts with\
+      \ an AWS CloudFormation custom resource, you don't have to write your own functions\
+      \ to send responses to the custom resource that invoked the function. AWS CloudFormation\
+      \ provides a response module ([cfn-response](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-lambda-function-code-cfnresponsemodule.html))\
+      \ that simplifies sending responses. See [Using Lambda with CloudFormation](https://docs.aws.amazon.com/lambda/latest/dg/services-cloudformation.html)\
+      \ for details."
+  LambdaFunctionStartPipelineCodeSourceKMSKeyArnMiVkG:
+    NoEcho: "true"
+    Type: "String"
+    Description: "The ARN of the KMSlong (KMS) customer managed key that's used to\
+      \ encrypt your function's .zip deployment package. If you don't provide a customer\
+      \ managed key, Lambda uses an [owned key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-owned-cmk)."
+  LambdaFunctionServiceCheckCodeSourceKMSKeyArnVnxem:
+    NoEcho: "true"
+    Type: "String"
+    Description: "The ARN of the KMSlong (KMS) customer managed key that's used to\
+      \ encrypt your function's .zip deployment package. If you don't provide a customer\
+      \ managed key, Lambda uses an [owned key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-owned-cmk)."
+  LambdaFunctionPipeMarkFailedCodeS3BucketcyYVH:
+    NoEcho: "true"
+    Type: "String"
+    Description: "An Amazon S3 bucket in the same AWS-Region as your function. The\
+      \ bucket can be in a different AWS-account."
+  LambdaFunctionPipeCheckSafetyCodeImageUriOOwU6:
+    NoEcho: "true"
+    Type: "String"
+    Description: "URI of a [container image](https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html)\
+      \ in the Amazon ECR registry."
+  LambdaFunctionPipeReadTextCodeImageUrilGYaM:
+    NoEcho: "true"
+    Type: "String"
+    Description: "URI of a [container image](https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html)\
+      \ in the Amazon ECR registry."
+  LambdaFunctionPipeReadTextCodeZipFileLotlL:
+    NoEcho: "true"
+    Type: "String"
+    Description: "(Node.js and Python) The source code of your Lambda function. If\
+      \ you include your function source inline with this parameter, CFN places it\
+      \ in a file named ``index`` and zips it to create a [deployment package](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html).\
+      \ This zip file cannot exceed 4MB. For the ``Handler`` property, the first part\
+      \ of the handler identifier must be ``index``. For example, ``index.handler``.\n\
+      \  When you specify source code inline for a Node.js function, the ``index``\
+      \ file that CFN creates uses the extension ``.js``. This means that Node.js\
+      \ treats the file as a CommonJS module.\n When using Node.js 24 or later, Node.js\
+      \ can automatically detect if a ``.js`` file should be treated as CommonJS or\
+      \ as an ES module. To enable auto-detection, add the ``--experimental-detect-module``\
+      \ flag to the ``NODE_OPTIONS`` environment variable. For more information, see\
+      \ [Experimental Node.js features](https://docs.aws.amazon.com//lambda/latest/dg/lambda-nodejs.html#nodejs-experimental-features).\n\
+      \   For JSON, you must escape quotes and special characters such as newline\
+      \ (``\\n``) with a backslash.\n If you specify a function that interacts with\
+      \ an AWS CloudFormation custom resource, you don't have to write your own functions\
+      \ to send responses to the custom resource that invoked the function. AWS CloudFormation\
+      \ provides a response module ([cfn-response](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-lambda-function-code-cfnresponsemodule.html))\
+      \ that simplifies sending responses. See [Using Lambda with CloudFormation](https://docs.aws.amazon.com/lambda/latest/dg/services-cloudformation.html)\
+      \ for details."
+  LambdaFunctionSearchNotesCodeSourceKMSKeyArnAURCn:
+    NoEcho: "true"
+    Type: "String"
+    Description: "The ARN of the KMSlong (KMS) customer managed key that's used to\
+      \ encrypt your function's .zip deployment package. If you don't provide a customer\
+      \ managed key, Lambda uses an [owned key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-owned-cmk)."
+  LambdaFunctionPipeMakeAudioCodeZipFileWSw42:
+    NoEcho: "true"
+    Type: "String"
+    Description: "(Node.js and Python) The source code of your Lambda function. If\
+      \ you include your function source inline with this parameter, CFN places it\
+      \ in a file named ``index`` and zips it to create a [deployment package](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html).\
+      \ This zip file cannot exceed 4MB. For the ``Handler`` property, the first part\
+      \ of the handler identifier must be ``index``. For example, ``index.handler``.\n\
+      \  When you specify source code inline for a Node.js function, the ``index``\
+      \ file that CFN creates uses the extension ``.js``. This means that Node.js\
+      \ treats the file as a CommonJS module.\n When using Node.js 24 or later, Node.js\
+      \ can automatically detect if a ``.js`` file should be treated as CommonJS or\
+      \ as an ES module. To enable auto-detection, add the ``--experimental-detect-module``\
+      \ flag to the ``NODE_OPTIONS`` environment variable. For more information, see\
+      \ [Experimental Node.js features](https://docs.aws.amazon.com//lambda/latest/dg/lambda-nodejs.html#nodejs-experimental-features).\n\
+      \   For JSON, you must escape quotes and special characters such as newline\
+      \ (``\\n``) with a backslash.\n If you specify a function that interacts with\
+      \ an AWS CloudFormation custom resource, you don't have to write your own functions\
+      \ to send responses to the custom resource that invoked the function. AWS CloudFormation\
+      \ provides a response module ([cfn-response](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-lambda-function-code-cfnresponsemodule.html))\
+      \ that simplifies sending responses. See [Using Lambda with CloudFormation](https://docs.aws.amazon.com/lambda/latest/dg/services-cloudformation.html)\
+      \ for details."
+  LambdaFunctionCreateNoteCodeS3ObjectStorageModeUccNk:
+    NoEcho: "true"
+    Type: "String"
+    Description: "Specifies the storage mode for the deployment package. Use ``COPY``\
+      \ to store the package in LAMlong-managed storage. Use ``REFERENCE`` to read\
+      \ the package directly from the Amazon S3 bucket. If omitted, the default is\
+      \ ``COPY``.Possible values: [COPY, REFERENCE]\nThis property can be replaced\
+      \ with other types"
+  LambdaFunctionPipeTagNoteCodeSourceKMSKeyArnjraqA:
+    NoEcho: "true"
+    Type: "String"
+    Description: "The ARN of the KMSlong (KMS) customer managed key that's used to\
+      \ encrypt your function's .zip deployment package. If you don't provide a customer\
+      \ managed key, Lambda uses an [owned key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-owned-cmk)."
+  LambdaFunctionPipeSaveNotifyCodeS3ObjectStorageMode6KkNY:
+    NoEcho: "true"
+    Type: "String"
+    Description: "Specifies the storage mode for the deployment package. Use ``COPY``\
+      \ to store the package in LAMlong-managed storage. Use ``REFERENCE`` to read\
+      \ the package directly from the Amazon S3 bucket. If omitted, the default is\
+      \ ``COPY``.Possible values: [COPY, REFERENCE]\nThis property can be replaced\
+      \ with other types"
+  LambdaFunctionGetNoteCodeS3KeyJhR2b:
+    NoEcho: "true"
+    Type: "String"
+    Description: "The Amazon S3 key of the deployment package."
+  LambdaFunctionStartPipelineCodeS3ObjectStorageModeV0BWY:
+    NoEcho: "true"
+    Type: "String"
+    Description: "Specifies the storage mode for the deployment package. Use ``COPY``\
+      \ to store the package in LAMlong-managed storage. Use ``REFERENCE`` to read\
+      \ the package directly from the Amazon S3 bucket. If omitted, the default is\
+      \ ``COPY``.Possible values: [COPY, REFERENCE]\nThis property can be replaced\
+      \ with other types"
+  LambdaFunctionChatCodeS3BucketiW1l4:
+    NoEcho: "true"
+    Type: "String"
+    Description: "An Amazon S3 bucket in the same AWS-Region as your function. The\
+      \ bucket can be in a different AWS-account."
+  LambdaFunctionWeeklyDigestCodeS3ObjectVersionUTl9l:
+    NoEcho: "true"
+    Type: "String"
+    Description: "For versioned objects, the version of the deployment package object\
+      \ to use."
+  LambdaFunctionPipeMakeAudioCodeS3Key6LheL:
+    NoEcho: "true"
+    Type: "String"
+    Description: "The Amazon S3 key of the deployment package."
+  LambdaFunctionTranslateNoteCodeSourceKMSKeyArnqppDE:
+    NoEcho: "true"
+    Type: "String"
+    Description: "The ARN of the KMSlong (KMS) customer managed key that's used to\
+      \ encrypt your function's .zip deployment package. If you don't provide a customer\
+      \ managed key, Lambda uses an [owned key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-owned-cmk)."
+  LambdaFunctionTranslateNoteCodeS3Key9yWQh:
+    NoEcho: "true"
+    Type: "String"
+    Description: "The Amazon S3 key of the deployment package."
+  LambdaFunctionWeeklyDigestCodeImageUripx2Dc:
+    NoEcho: "true"
+    Type: "String"
+    Description: "URI of a [container image](https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html)\
+      \ in the Amazon ECR registry."
+  LambdaFunctionPipeCheckSafetyCodeS3KeyE3KEJ:
+    NoEcho: "true"
+    Type: "String"
+    Description: "The Amazon S3 key of the deployment package."
+  LambdaFunctionSubscribeCodeS3ObjectStorageModedWksF:
+    NoEcho: "true"
+    Type: "String"
+    Description: "Specifies the storage mode for the deployment package. Use ``COPY``\
+      \ to store the package in LAMlong-managed storage. Use ``REFERENCE`` to read\
+      \ the package directly from the Amazon S3 bucket. If omitted, the default is\
+      \ ``COPY``.Possible values: [COPY, REFERENCE]\nThis property can be replaced\
+      \ with other types"
+  LambdaFunctionTranslateNoteCodeS3ObjectStorageMode9Irz7:
+    NoEcho: "true"
+    Type: "String"
+    Description: "Specifies the storage mode for the deployment package. Use ``COPY``\
+      \ to store the package in LAMlong-managed storage. Use ``REFERENCE`` to read\
+      \ the package directly from the Amazon S3 bucket. If omitted, the default is\
+      \ ``COPY``.Possible values: [COPY, REFERENCE]\nThis property can be replaced\
+      \ with other types"
+  LambdaFunctionModerateNoteCodeZipFileGdAic:
+    NoEcho: "true"
+    Type: "String"
+    Description: "(Node.js and Python) The source code of your Lambda function. If\
+      \ you include your function source inline with this parameter, CFN places it\
+      \ in a file named ``index`` and zips it to create a [deployment package](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html).\
+      \ This zip file cannot exceed 4MB. For the ``Handler`` property, the first part\
+      \ of the handler identifier must be ``index``. For example, ``index.handler``.\n\
+      \  When you specify source code inline for a Node.js function, the ``index``\
+      \ file that CFN creates uses the extension ``.js``. This means that Node.js\
+      \ treats the file as a CommonJS module.\n When using Node.js 24 or later, Node.js\
+      \ can automatically detect if a ``.js`` file should be treated as CommonJS or\
+      \ as an ES module. To enable auto-detection, add the ``--experimental-detect-module``\
+      \ flag to the ``NODE_OPTIONS`` environment variable. For more information, see\
+      \ [Experimental Node.js features](https://docs.aws.amazon.com//lambda/latest/dg/lambda-nodejs.html#nodejs-experimental-features).\n\
+      \   For JSON, you must escape quotes and special characters such as newline\
+      \ (``\\n``) with a backslash.\n If you specify a function that interacts with\
+      \ an AWS CloudFormation custom resource, you don't have to write your own functions\
+      \ to send responses to the custom resource that invoked the function. AWS CloudFormation\
+      \ provides a response module ([cfn-response](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-lambda-function-code-cfnresponsemodule.html))\
+      \ that simplifies sending responses. See [Using Lambda with CloudFormation](https://docs.aws.amazon.com/lambda/latest/dg/services-cloudformation.html)\
+      \ for details."
+  LambdaFunctionTranslateNoteCodeImageUriCvj5W:
+    NoEcho: "true"
+    Type: "String"
+    Description: "URI of a [container image](https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html)\
+      \ in the Amazon ECR registry."
+  LambdaFunctionPipeCheckSafetyCodeZipFileaeL0g:
+    NoEcho: "true"
+    Type: "String"
+    Description: "(Node.js and Python) The source code of your Lambda function. If\
+      \ you include your function source inline with this parameter, CFN places it\
+      \ in a file named ``index`` and zips it to create a [deployment package](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html).\
+      \ This zip file cannot exceed 4MB. For the ``Handler`` property, the first part\
+      \ of the handler identifier must be ``index``. For example, ``index.handler``.\n\
+      \  When you specify source code inline for a Node.js function, the ``index``\
+      \ file that CFN creates uses the extension ``.js``. This means that Node.js\
+      \ treats the file as a CommonJS module.\n When using Node.js 24 or later, Node.js\
+      \ can automatically detect if a ``.js`` file should be treated as CommonJS or\
+      \ as an ES module. To enable auto-detection, add the ``--experimental-detect-module``\
+      \ flag to the ``NODE_OPTIONS`` environment variable. For more information, see\
+      \ [Experimental Node.js features](https://docs.aws.amazon.com//lambda/latest/dg/lambda-nodejs.html#nodejs-experimental-features).\n\
+      \   For JSON, you must escape quotes and special characters such as newline\
+      \ (``\\n``) with a backslash.\n If you specify a function that interacts with\
+      \ an AWS CloudFormation custom resource, you don't have to write your own functions\
+      \ to send responses to the custom resource that invoked the function. AWS CloudFormation\
+      \ provides a response module ([cfn-response](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-lambda-function-code-cfnresponsemodule.html))\
+      \ that simplifies sending responses. See [Using Lambda with CloudFormation](https://docs.aws.amazon.com/lambda/latest/dg/services-cloudformation.html)\
+      \ for details."
+  LambdaFunctionPipeMarkFailedCodeS3ObjectVersionbliLG:
+    NoEcho: "true"
+    Type: "String"
+    Description: "For versioned objects, the version of the deployment package object\
+      \ to use."
+  LambdaFunctionStartPipelineCodeS3KeyvxFU2:
+    NoEcho: "true"
+    Type: "String"
+    Description: "The Amazon S3 key of the deployment package."
+  LambdaFunctionLexFulfillCodeS3Key1MwNj:
+    NoEcho: "true"
+    Type: "String"
+    Description: "The Amazon S3 key of the deployment package."
+  LambdaFunctionWeeklyDigestCodeS3KeyQD0Jm:
+    NoEcho: "true"
+    Type: "String"
+    Description: "The Amazon S3 key of the deployment package."
+  LambdaFunctionCreateNoteCodeS3Bucket5YwLC:
+    NoEcho: "true"
+    Type: "String"
+    Description: "An Amazon S3 bucket in the same AWS-Region as your function. The\
+      \ bucket can be in a different AWS-account."
+  LambdaFunctionPipeCheckSafetyCodeSourceKMSKeyArn32MA7:
+    NoEcho: "true"
+    Type: "String"
+    Description: "The ARN of the KMSlong (KMS) customer managed key that's used to\
+      \ encrypt your function's .zip deployment package. If you don't provide a customer\
+      \ managed key, Lambda uses an [owned key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-owned-cmk)."
+  LambdaFunctionCreateNoteCodeImageUric63hW:
+    NoEcho: "true"
+    Type: "String"
+    Description: "URI of a [container image](https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html)\
+      \ in the Amazon ECR registry."
+  LambdaFunctionPipeMakeAudioCodeSourceKMSKeyArnVwf3l:
+    NoEcho: "true"
+    Type: "String"
+    Description: "The ARN of the KMSlong (KMS) customer managed key that's used to\
+      \ encrypt your function's .zip deployment package. If you don't provide a customer\
+      \ managed key, Lambda uses an [owned key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-owned-cmk)."
+  LambdaFunctionServiceCheckCodeS3ObjectStorageModeBGxFJ:
+    NoEcho: "true"
+    Type: "String"
+    Description: "Specifies the storage mode for the deployment package. Use ``COPY``\
+      \ to store the package in LAMlong-managed storage. Use ``REFERENCE`` to read\
+      \ the package directly from the Amazon S3 bucket. If omitted, the default is\
+      \ ``COPY``.Possible values: [COPY, REFERENCE]\nThis property can be replaced\
+      \ with other types"
+  LambdaFunctionPipeTagNoteCodeImageUri37tQJ:
+    NoEcho: "true"
+    Type: "String"
+    Description: "URI of a [container image](https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html)\
+      \ in the Amazon ECR registry."
+  LambdaFunctionSubscribeCodeImageUrirLYar:
+    NoEcho: "true"
+    Type: "String"
+    Description: "URI of a [container image](https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html)\
+      \ in the Amazon ECR registry."
+  LambdaFunctionSearchNotesCodeS3ObjectVersion8LaeQ:
+    NoEcho: "true"
+    Type: "String"
+    Description: "For versioned objects, the version of the deployment package object\
+      \ to use."
+  LambdaFunctionSearchNotesCodeS3Keyvj19N:
+    NoEcho: "true"
+    Type: "String"
+    Description: "The Amazon S3 key of the deployment package."
+  LambdaFunctionChatCodeS3ObjectStorageMode9IMyM:
+    NoEcho: "true"
+    Type: "String"
+    Description: "Specifies the storage mode for the deployment package. Use ``COPY``\
+      \ to store the package in LAMlong-managed storage. Use ``REFERENCE`` to read\
+      \ the package directly from the Amazon S3 bucket. If omitted, the default is\
+      \ ``COPY``.Possible values: [COPY, REFERENCE]\nThis property can be replaced\
+      \ with other types"
+  LambdaFunctionPipeTagNoteCodeS3Bucket9gA5J:
+    NoEcho: "true"
+    Type: "String"
+    Description: "An Amazon S3 bucket in the same AWS-Region as your function. The\
+      \ bucket can be in a different AWS-account."
+  LambdaFunctionSearchNotesCodeS3Bucketn4nLE:
+    NoEcho: "true"
+    Type: "String"
+    Description: "An Amazon S3 bucket in the same AWS-Region as your function. The\
+      \ bucket can be in a different AWS-account."
+  LambdaFunctionPipeMarkFailedCodeZipFilefWPXT:
+    NoEcho: "true"
+    Type: "String"
+    Description: "(Node.js and Python) The source code of your Lambda function. If\
+      \ you include your function source inline with this parameter, CFN places it\
+      \ in a file named ``index`` and zips it to create a [deployment package](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html).\
+      \ This zip file cannot exceed 4MB. For the ``Handler`` property, the first part\
+      \ of the handler identifier must be ``index``. For example, ``index.handler``.\n\
+      \  When you specify source code inline for a Node.js function, the ``index``\
+      \ file that CFN creates uses the extension ``.js``. This means that Node.js\
+      \ treats the file as a CommonJS module.\n When using Node.js 24 or later, Node.js\
+      \ can automatically detect if a ``.js`` file should be treated as CommonJS or\
+      \ as an ES module. To enable auto-detection, add the ``--experimental-detect-module``\
+      \ flag to the ``NODE_OPTIONS`` environment variable. For more information, see\
+      \ [Experimental Node.js features](https://docs.aws.amazon.com//lambda/latest/dg/lambda-nodejs.html#nodejs-experimental-features).\n\
+      \   For JSON, you must escape quotes and special characters such as newline\
+      \ (``\\n``) with a backslash.\n If you specify a function that interacts with\
+      \ an AWS CloudFormation custom resource, you don't have to write your own functions\
+      \ to send responses to the custom resource that invoked the function. AWS CloudFormation\
+      \ provides a response module ([cfn-response](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-lambda-function-code-cfnresponsemodule.html))\
+      \ that simplifies sending responses. See [Using Lambda with CloudFormation](https://docs.aws.amazon.com/lambda/latest/dg/services-cloudformation.html)\
+      \ for details."
+  LambdaFunctionStartPipelineCodeZipFile7Qq4E:
+    NoEcho: "true"
+    Type: "String"
+    Description: "(Node.js and Python) The source code of your Lambda function. If\
+      \ you include your function source inline with this parameter, CFN places it\
+      \ in a file named ``index`` and zips it to create a [deployment package](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html).\
+      \ This zip file cannot exceed 4MB. For the ``Handler`` property, the first part\
+      \ of the handler identifier must be ``index``. For example, ``index.handler``.\n\
+      \  When you specify source code inline for a Node.js function, the ``index``\
+      \ file that CFN creates uses the extension ``.js``. This means that Node.js\
+      \ treats the file as a CommonJS module.\n When using Node.js 24 or later, Node.js\
+      \ can automatically detect if a ``.js`` file should be treated as CommonJS or\
+      \ as an ES module. To enable auto-detection, add the ``--experimental-detect-module``\
+      \ flag to the ``NODE_OPTIONS`` environment variable. For more information, see\
+      \ [Experimental Node.js features](https://docs.aws.amazon.com//lambda/latest/dg/lambda-nodejs.html#nodejs-experimental-features).\n\
+      \   For JSON, you must escape quotes and special characters such as newline\
+      \ (``\\n``) with a backslash.\n If you specify a function that interacts with\
+      \ an AWS CloudFormation custom resource, you don't have to write your own functions\
+      \ to send responses to the custom resource that invoked the function. AWS CloudFormation\
+      \ provides a response module ([cfn-response](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-lambda-function-code-cfnresponsemodule.html))\
+      \ that simplifies sending responses. See [Using Lambda with CloudFormation](https://docs.aws.amazon.com/lambda/latest/dg/services-cloudformation.html)\
+      \ for details."
+  LambdaFunctionPipeSaveNotifyCodeS3ObjectVersionJP2fu:
+    NoEcho: "true"
+    Type: "String"
+    Description: "For versioned objects, the version of the deployment package object\
+      \ to use."
+  LambdaFunctionTranslateNoteCodeZipFilemCXau:
+    NoEcho: "true"
+    Type: "String"
+    Description: "(Node.js and Python) The source code of your Lambda function. If\
+      \ you include your function source inline with this parameter, CFN places it\
+      \ in a file named ``index`` and zips it to create a [deployment package](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html).\
+      \ This zip file cannot exceed 4MB. For the ``Handler`` property, the first part\
+      \ of the handler identifier must be ``index``. For example, ``index.handler``.\n\
+      \  When you specify source code inline for a Node.js function, the ``index``\
+      \ file that CFN creates uses the extension ``.js``. This means that Node.js\
+      \ treats the file as a CommonJS module.\n When using Node.js 24 or later, Node.js\
+      \ can automatically detect if a ``.js`` file should be treated as CommonJS or\
+      \ as an ES module. To enable auto-detection, add the ``--experimental-detect-module``\
+      \ flag to the ``NODE_OPTIONS`` environment variable. For more information, see\
+      \ [Experimental Node.js features](https://docs.aws.amazon.com//lambda/latest/dg/lambda-nodejs.html#nodejs-experimental-features).\n\
+      \   For JSON, you must escape quotes and special characters such as newline\
+      \ (``\\n``) with a backslash.\n If you specify a function that interacts with\
+      \ an AWS CloudFormation custom resource, you don't have to write your own functions\
+      \ to send responses to the custom resource that invoked the function. AWS CloudFormation\
+      \ provides a response module ([cfn-response](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-lambda-function-code-cfnresponsemodule.html))\
+      \ that simplifies sending responses. See [Using Lambda with CloudFormation](https://docs.aws.amazon.com/lambda/latest/dg/services-cloudformation.html)\
+      \ for details."
+  LambdaFunctionPipeTagNoteCodeZipFilexc6RC:
+    NoEcho: "true"
+    Type: "String"
+    Description: "(Node.js and Python) The source code of your Lambda function. If\
+      \ you include your function source inline with this parameter, CFN places it\
+      \ in a file named ``index`` and zips it to create a [deployment package](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html).\
+      \ This zip file cannot exceed 4MB. For the ``Handler`` property, the first part\
+      \ of the handler identifier must be ``index``. For example, ``index.handler``.\n\
+      \  When you specify source code inline for a Node.js function, the ``index``\
+      \ file that CFN creates uses the extension ``.js``. This means that Node.js\
+      \ treats the file as a CommonJS module.\n When using Node.js 24 or later, Node.js\
+      \ can automatically detect if a ``.js`` file should be treated as CommonJS or\
+      \ as an ES module. To enable auto-detection, add the ``--experimental-detect-module``\
+      \ flag to the ``NODE_OPTIONS`` environment variable. For more information, see\
+      \ [Experimental Node.js features](https://docs.aws.amazon.com//lambda/latest/dg/lambda-nodejs.html#nodejs-experimental-features).\n\
+      \   For JSON, you must escape quotes and special characters such as newline\
+      \ (``\\n``) with a backslash.\n If you specify a function that interacts with\
+      \ an AWS CloudFormation custom resource, you don't have to write your own functions\
+      \ to send responses to the custom resource that invoked the function. AWS CloudFormation\
+      \ provides a response module ([cfn-response](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-lambda-function-code-cfnresponsemodule.html))\
+      \ that simplifies sending responses. See [Using Lambda with CloudFormation](https://docs.aws.amazon.com/lambda/latest/dg/services-cloudformation.html)\
+      \ for details."
+  LambdaFunctionStartPipelineCodeS3Bucket1KPcG:
+    NoEcho: "true"
+    Type: "String"
+    Description: "An Amazon S3 bucket in the same AWS-Region as your function. The\
+      \ bucket can be in a different AWS-account."
+  LambdaFunctionPipeSaveNotifyCodeZipFileXKLvY:
+    NoEcho: "true"
+    Type: "String"
+    Description: "(Node.js and Python) The source code of your Lambda function. If\
+      \ you include your function source inline with this parameter, CFN places it\
+      \ in a file named ``index`` and zips it to create a [deployment package](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html).\
+      \ This zip file cannot exceed 4MB. For the ``Handler`` property, the first part\
+      \ of the handler identifier must be ``index``. For example, ``index.handler``.\n\
+      \  When you specify source code inline for a Node.js function, the ``index``\
+      \ file that CFN creates uses the extension ``.js``. This means that Node.js\
+      \ treats the file as a CommonJS module.\n When using Node.js 24 or later, Node.js\
+      \ can automatically detect if a ``.js`` file should be treated as CommonJS or\
+      \ as an ES module. To enable auto-detection, add the ``--experimental-detect-module``\
+      \ flag to the ``NODE_OPTIONS`` environment variable. For more information, see\
+      \ [Experimental Node.js features](https://docs.aws.amazon.com//lambda/latest/dg/lambda-nodejs.html#nodejs-experimental-features).\n\
+      \   For JSON, you must escape quotes and special characters such as newline\
+      \ (``\\n``) with a backslash.\n If you specify a function that interacts with\
+      \ an AWS CloudFormation custom resource, you don't have to write your own functions\
+      \ to send responses to the custom resource that invoked the function. AWS CloudFormation\
+      \ provides a response module ([cfn-response](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-lambda-function-code-cfnresponsemodule.html))\
+      \ that simplifies sending responses. See [Using Lambda with CloudFormation](https://docs.aws.amazon.com/lambda/latest/dg/services-cloudformation.html)\
+      \ for details."
+  LambdaFunctionPipeSaveNotifyCodeSourceKMSKeyArnAFZvt:
+    NoEcho: "true"
+    Type: "String"
+    Description: "The ARN of the KMSlong (KMS) customer managed key that's used to\
+      \ encrypt your function's .zip deployment package. If you don't provide a customer\
+      \ managed key, Lambda uses an [owned key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-owned-cmk)."
+  LambdaFunctionPipeCheckSafetyCodeS3ObjectStorageModerp1cq:
+    NoEcho: "true"
+    Type: "String"
+    Description: "Specifies the storage mode for the deployment package. Use ``COPY``\
+      \ to store the package in LAMlong-managed storage. Use ``REFERENCE`` to read\
+      \ the package directly from the Amazon S3 bucket. If omitted, the default is\
+      \ ``COPY``.Possible values: [COPY, REFERENCE]\nThis property can be replaced\
+      \ with other types"
+  LambdaFunctionModerateNoteCodeImageUrihViID:
+    NoEcho: "true"
+    Type: "String"
+    Description: "URI of a [container image](https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html)\
+      \ in the Amazon ECR registry."
+  LambdaFunctionPipeCheckTextCodeS3Keyrd0IO:
+    NoEcho: "true"
+    Type: "String"
+    Description: "The Amazon S3 key of the deployment package."
+  LambdaFunctionStartPipelineCodeImageUriQwjO3:
+    NoEcho: "true"
+    Type: "String"
+    Description: "URI of a [container image](https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html)\
+      \ in the Amazon ECR registry."
+  LambdaFunctionChatCodeImageUridRVBe:
+    NoEcho: "true"
+    Type: "String"
+    Description: "URI of a [container image](https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html)\
+      \ in the Amazon ECR registry."
+  LambdaFunctionLexFulfillCodeZipFilek9peU:
+    NoEcho: "true"
+    Type: "String"
+    Description: "(Node.js and Python) The source code of your Lambda function. If\
+      \ you include your function source inline with this parameter, CFN places it\
+      \ in a file named ``index`` and zips it to create a [deployment package](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html).\
+      \ This zip file cannot exceed 4MB. For the ``Handler`` property, the first part\
+      \ of the handler identifier must be ``index``. For example, ``index.handler``.\n\
+      \  When you specify source code inline for a Node.js function, the ``index``\
+      \ file that CFN creates uses the extension ``.js``. This means that Node.js\
+      \ treats the file as a CommonJS module.\n When using Node.js 24 or later, Node.js\
+      \ can automatically detect if a ``.js`` file should be treated as CommonJS or\
+      \ as an ES module. To enable auto-detection, add the ``--experimental-detect-module``\
+      \ flag to the ``NODE_OPTIONS`` environment variable. For more information, see\
+      \ [Experimental Node.js features](https://docs.aws.amazon.com//lambda/latest/dg/lambda-nodejs.html#nodejs-experimental-features).\n\
+      \   For JSON, you must escape quotes and special characters such as newline\
+      \ (``\\n``) with a backslash.\n If you specify a function that interacts with\
+      \ an AWS CloudFormation custom resource, you don't have to write your own functions\
+      \ to send responses to the custom resource that invoked the function. AWS CloudFormation\
+      \ provides a response module ([cfn-response](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-lambda-function-code-cfnresponsemodule.html))\
+      \ that simplifies sending responses. See [Using Lambda with CloudFormation](https://docs.aws.amazon.com/lambda/latest/dg/services-cloudformation.html)\
+      \ for details."
+  LambdaFunctionCreateNoteCodeS3ObjectVersionQ6ekG:
+    NoEcho: "true"
+    Type: "String"
+    Description: "For versioned objects, the version of the deployment package object\
+      \ to use."
+  LambdaFunctionPipeMarkFailedCodeImageUriZmxOH:
+    NoEcho: "true"
+    Type: "String"
+    Description: "URI of a [container image](https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html)\
+      \ in the Amazon ECR registry."
+  LambdaFunctionSubscribeCodeS3KeyN51Ov:
+    NoEcho: "true"
+    Type: "String"
+    Description: "The Amazon S3 key of the deployment package."
+  LambdaFunctionLexFulfillCodeS3ObjectVersionLzixs:
+    NoEcho: "true"
+    Type: "String"
+    Description: "For versioned objects, the version of the deployment package object\
+      \ to use."
+  LambdaFunctionWeeklyDigestCodeSourceKMSKeyArnasu3S:
+    NoEcho: "true"
+    Type: "String"
+    Description: "The ARN of the KMSlong (KMS) customer managed key that's used to\
+      \ encrypt your function's .zip deployment package. If you don't provide a customer\
+      \ managed key, Lambda uses an [owned key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-owned-cmk)."
+  LambdaFunctionServiceCheckCodeS3ObjectVersionKeZ77:
+    NoEcho: "true"
+    Type: "String"
+    Description: "For versioned objects, the version of the deployment package object\
+      \ to use."
+  LambdaFunctionChatCodeS3ObjectVersionYFC6s:
+    NoEcho: "true"
+    Type: "String"
+    Description: "For versioned objects, the version of the deployment package object\
+      \ to use."
+  LambdaFunctionPipeCheckTextCodeImageUrirERKM:
+    NoEcho: "true"
+    Type: "String"
+    Description: "URI of a [container image](https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html)\
+      \ in the Amazon ECR registry."
+Resources:
+  LambdaFunctionPipeCheckSafety:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::Lambda::Function"
+    DeletionPolicy: "Retain"
+    Properties:
+      MemorySize: 128
+      Description: ""
+      TracingConfig:
+        Mode: "PassThrough"
+      Timeout: 30
+      RuntimeManagementConfig:
+        UpdateRuntimeOn: "Auto"
+      Handler: "lambda_function.lambda_handler"
+      Code:
+        SourceKMSKeyArn:
+          Ref: "LambdaFunctionPipeCheckSafetyCodeSourceKMSKeyArn32MA7"
+        S3ObjectVersion:
+          Ref: "LambdaFunctionPipeCheckSafetyCodeS3ObjectVersionMentW"
+        S3Bucket:
+          Ref: "LambdaFunctionPipeCheckSafetyCodeS3BucketXwnmn"
+        ZipFile:
+          Ref: "LambdaFunctionPipeCheckSafetyCodeZipFileaeL0g"
+        S3Key:
+          Ref: "LambdaFunctionPipeCheckSafetyCodeS3KeyE3KEJ"
+        S3ObjectStorageMode:
+          Ref: "LambdaFunctionPipeCheckSafetyCodeS3ObjectStorageModerp1cq"
+        ImageUri:
+          Ref: "LambdaFunctionPipeCheckSafetyCodeImageUriOOwU6"
+      Role: "arn:aws:iam::775545827739:role/smartnotesrole"
+      FileSystemConfigs: []
+      FunctionName: "pipeCheckSafety"
+      Runtime: "python3.14"
+      PackageType: "Zip"
+      LoggingConfig:
+        LogFormat: "Text"
+        LogGroup: "/aws/lambda/pipeCheckSafety"
+      RecursiveLoop: "Terminate"
+      EphemeralStorage:
+        Size: 512
+      Architectures:
+      - "x86_64"
+  CloudWatchAlarmSmartNotesdeadletters:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::CloudWatch::Alarm"
+    DeletionPolicy: "Retain"
+    Properties:
+      ComparisonOperator: "GreaterThanOrEqualToThreshold"
+      TreatMissingData: "missing"
+      Dimensions:
+      - Value: "smartnotes-uploads-dlq"
+        Name: "QueueName"
+      Period: 300
+      EvaluationPeriods: 1
+      Namespace: "AWS/SQS"
+      OKActions: []
+      AlarmActions:
+      - "arn:aws:sns:ap-southeast-2:775545827739:ops-alerts"
+      MetricName: "ApproximateNumberOfMessagesVisible"
+      ActionsEnabled: true
+      AlarmName: "SmartNotes-dead-letters"
+      Statistic: "Maximum"
+      InsufficientDataActions: []
+      DatapointsToAlarm: 1
+      Tags: []
+      Threshold: 1
+  LambdaFunctionPipeSaveNotify:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::Lambda::Function"
+    DeletionPolicy: "Retain"
+    Properties:
+      MemorySize: 128
+      Description: ""
+      TracingConfig:
+        Mode: "PassThrough"
+      Timeout: 30
+      RuntimeManagementConfig:
+        UpdateRuntimeOn: "Auto"
+      Handler: "lambda_function.lambda_handler"
+      Code:
+        SourceKMSKeyArn:
+          Ref: "LambdaFunctionPipeSaveNotifyCodeSourceKMSKeyArnAFZvt"
+        S3ObjectVersion:
+          Ref: "LambdaFunctionPipeSaveNotifyCodeS3ObjectVersionJP2fu"
+        S3Bucket:
+          Ref: "LambdaFunctionPipeSaveNotifyCodeS3BucketOaLzT"
+        ZipFile:
+          Ref: "LambdaFunctionPipeSaveNotifyCodeZipFileXKLvY"
+        S3Key:
+          Ref: "LambdaFunctionPipeSaveNotifyCodeS3Key2s43M"
+        S3ObjectStorageMode:
+          Ref: "LambdaFunctionPipeSaveNotifyCodeS3ObjectStorageMode6KkNY"
+        ImageUri:
+          Ref: "LambdaFunctionPipeSaveNotifyCodeImageUriZIcoP"
+      Role: "arn:aws:iam::775545827739:role/smartnotesrole"
+      FileSystemConfigs: []
+      FunctionName: "pipeSaveNotify"
+      Runtime: "python3.14"
+      PackageType: "Zip"
+      LoggingConfig:
+        LogFormat: "Text"
+        LogGroup: "/aws/lambda/pipeSaveNotify"
+      RecursiveLoop: "Terminate"
+      EphemeralStorage:
+        Size: 512
+      Architectures:
+      - "x86_64"
+  SNSTopicNewnotes:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::SNS::Topic"
+    DeletionPolicy: "Retain"
+    Properties:
+      FifoTopic: false
+      Subscription:
+      - Endpoint: "team-member@example.com"
+        Protocol: "email"
+      TracingConfig: "PassThrough"
+      MaximumMessageSize: 262144
+      ArchivePolicy: {}
+      TopicName: "new-notes"
+  LambdaFunctionCreateNote:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::Lambda::Function"
+    DeletionPolicy: "Retain"
+    Properties:
+      MemorySize: 128
+      Description: ""
+      TracingConfig:
+        Mode: "PassThrough"
+      Timeout: 30
+      RuntimeManagementConfig:
+        UpdateRuntimeOn: "Auto"
+      Handler: "lambda_function.lambda_handler"
+      Code:
+        SourceKMSKeyArn:
+          Ref: "LambdaFunctionCreateNoteCodeSourceKMSKeyArnsY2vI"
+        S3ObjectVersion:
+          Ref: "LambdaFunctionCreateNoteCodeS3ObjectVersionQ6ekG"
+        S3Bucket:
+          Ref: "LambdaFunctionCreateNoteCodeS3Bucket5YwLC"
+        ZipFile:
+          Ref: "LambdaFunctionCreateNoteCodeZipFileSKspC"
+        S3Key:
+          Ref: "LambdaFunctionCreateNoteCodeS3KeyPCI3e"
+        S3ObjectStorageMode:
+          Ref: "LambdaFunctionCreateNoteCodeS3ObjectStorageModeUccNk"
+        ImageUri:
+          Ref: "LambdaFunctionCreateNoteCodeImageUric63hW"
+      Role: "arn:aws:iam::775545827739:role/smartnotesrole"
+      FileSystemConfigs: []
+      FunctionName: "createNote"
+      Runtime: "python3.14"
+      PackageType: "Zip"
+      LoggingConfig:
+        LogFormat: "Text"
+        LogGroup: "/aws/lambda/createNote"
+      RecursiveLoop: "Terminate"
+      EphemeralStorage:
+        Size: 512
+      Architectures:
+      - "x86_64"
+  LambdaFunctionGetNote:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::Lambda::Function"
+    DeletionPolicy: "Retain"
+    Properties:
+      MemorySize: 128
+      Description: ""
+      TracingConfig:
+        Mode: "PassThrough"
+      Timeout: 30
+      RuntimeManagementConfig:
+        UpdateRuntimeOn: "Auto"
+      Handler: "lambda_function.lambda_handler"
+      Code:
+        SourceKMSKeyArn:
+          Ref: "LambdaFunctionGetNoteCodeSourceKMSKeyArnkTlsq"
+        S3ObjectVersion:
+          Ref: "LambdaFunctionGetNoteCodeS3ObjectVersionFSl8R"
+        S3Bucket:
+          Ref: "LambdaFunctionGetNoteCodeS3BucketHgu2x"
+        ZipFile:
+          Ref: "LambdaFunctionGetNoteCodeZipFileYoaJq"
+        S3Key:
+          Ref: "LambdaFunctionGetNoteCodeS3KeyJhR2b"
+        S3ObjectStorageMode:
+          Ref: "LambdaFunctionGetNoteCodeS3ObjectStorageModeRrmAc"
+        ImageUri:
+          Ref: "LambdaFunctionGetNoteCodeImageUriL7sZ7"
+      Role: "arn:aws:iam::775545827739:role/smartnotesrole"
+      FileSystemConfigs: []
+      FunctionName: "getNote"
+      Runtime: "python3.14"
+      PackageType: "Zip"
+      LoggingConfig:
+        LogFormat: "Text"
+        LogGroup: "/aws/lambda/getNote"
+      RecursiveLoop: "Terminate"
+      EphemeralStorage:
+        Size: 512
+      Architectures:
+      - "x86_64"
+  SQSQueueSmartnotesuploadsdlq:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::SQS::Queue"
+    DeletionPolicy: "Retain"
+    Properties:
+      SqsManagedSseEnabled: true
+      ReceiveMessageWaitTimeSeconds: 0
+      DelaySeconds: 0
+      MessageRetentionPeriod: 345600
+      MaximumMessageSize: 1048576
+      VisibilityTimeout: 30
+      QueueName: "smartnotes-uploads-dlq"
+  LambdaFunctionSearchNotes:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::Lambda::Function"
+    DeletionPolicy: "Retain"
+    Properties:
+      MemorySize: 128
+      Description: ""
+      TracingConfig:
+        Mode: "PassThrough"
+      Timeout: 30
+      RuntimeManagementConfig:
+        UpdateRuntimeOn: "Auto"
+      Handler: "lambda_function.lambda_handler"
+      Code:
+        SourceKMSKeyArn:
+          Ref: "LambdaFunctionSearchNotesCodeSourceKMSKeyArnAURCn"
+        S3ObjectVersion:
+          Ref: "LambdaFunctionSearchNotesCodeS3ObjectVersion8LaeQ"
+        S3Bucket:
+          Ref: "LambdaFunctionSearchNotesCodeS3Bucketn4nLE"
+        ZipFile:
+          Ref: "LambdaFunctionSearchNotesCodeZipFileL6iWq"
+        S3Key:
+          Ref: "LambdaFunctionSearchNotesCodeS3Keyvj19N"
+        S3ObjectStorageMode:
+          Ref: "LambdaFunctionSearchNotesCodeS3ObjectStorageModejxbif"
+        ImageUri:
+          Ref: "LambdaFunctionSearchNotesCodeImageUri4i6X1"
+      Role: "arn:aws:iam::775545827739:role/smartnotesrole"
+      FileSystemConfigs: []
+      FunctionName: "searchNotes"
+      Runtime: "python3.14"
+      PackageType: "Zip"
+      LoggingConfig:
+        LogFormat: "Text"
+        LogGroup: "/aws/lambda/searchNotes"
+      RecursiveLoop: "Terminate"
+      EphemeralStorage:
+        Size: 512
+      Architectures:
+      - "x86_64"
+  LambdaFunctionStartPipeline:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::Lambda::Function"
+    DeletionPolicy: "Retain"
+    Properties:
+      MemorySize: 128
+      Description: ""
+      TracingConfig:
+        Mode: "PassThrough"
+      Timeout: 30
+      RuntimeManagementConfig:
+        UpdateRuntimeOn: "Auto"
+      Handler: "lambda_function.lambda_handler"
+      Code:
+        SourceKMSKeyArn:
+          Ref: "LambdaFunctionStartPipelineCodeSourceKMSKeyArnMiVkG"
+        S3ObjectVersion:
+          Ref: "LambdaFunctionStartPipelineCodeS3ObjectVersion4VzLk"
+        S3Bucket:
+          Ref: "LambdaFunctionStartPipelineCodeS3Bucket1KPcG"
+        ZipFile:
+          Ref: "LambdaFunctionStartPipelineCodeZipFile7Qq4E"
+        S3Key:
+          Ref: "LambdaFunctionStartPipelineCodeS3KeyvxFU2"
+        S3ObjectStorageMode:
+          Ref: "LambdaFunctionStartPipelineCodeS3ObjectStorageModeV0BWY"
+        ImageUri:
+          Ref: "LambdaFunctionStartPipelineCodeImageUriQwjO3"
+      Role: "arn:aws:iam::775545827739:role/smartnotesrole"
+      FileSystemConfigs: []
+      FunctionName: "startPipeline"
+      Runtime: "python3.14"
+      PackageType: "Zip"
+      LoggingConfig:
+        LogFormat: "Text"
+        LogGroup: "/aws/lambda/startPipeline"
+      RecursiveLoop: "Terminate"
+      EphemeralStorage:
+        Size: 512
+      Architectures:
+      - "x86_64"
+  LambdaFunctionPipeMarkFailed:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::Lambda::Function"
+    DeletionPolicy: "Retain"
+    Properties:
+      MemorySize: 128
+      Description: ""
+      TracingConfig:
+        Mode: "PassThrough"
+      Timeout: 10
+      RuntimeManagementConfig:
+        UpdateRuntimeOn: "Auto"
+      Handler: "lambda_function.lambda_handler"
+      Code:
+        SourceKMSKeyArn:
+          Ref: "LambdaFunctionPipeMarkFailedCodeSourceKMSKeyArndM4e8"
+        S3ObjectVersion:
+          Ref: "LambdaFunctionPipeMarkFailedCodeS3ObjectVersionbliLG"
+        S3Bucket:
+          Ref: "LambdaFunctionPipeMarkFailedCodeS3BucketcyYVH"
+        ZipFile:
+          Ref: "LambdaFunctionPipeMarkFailedCodeZipFilefWPXT"
+        S3Key:
+          Ref: "LambdaFunctionPipeMarkFailedCodeS3KeyWRPUe"
+        S3ObjectStorageMode:
+          Ref: "LambdaFunctionPipeMarkFailedCodeS3ObjectStorageModemg5bl"
+        ImageUri:
+          Ref: "LambdaFunctionPipeMarkFailedCodeImageUriZmxOH"
+      Role: "arn:aws:iam::775545827739:role/smartnotesrole"
+      FileSystemConfigs: []
+      FunctionName: "pipeMarkFailed"
+      Runtime: "python3.14"
+      PackageType: "Zip"
+      LoggingConfig:
+        LogFormat: "Text"
+        LogGroup: "/aws/lambda/pipeMarkFailed"
+      RecursiveLoop: "Terminate"
+      EphemeralStorage:
+        Size: 512
+      Architectures:
+      - "x86_64"
+  ApiGatewayV2Api:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::ApiGatewayV2::Api"
+    DeletionPolicy: "Retain"
+    Properties:
+      IpAddressType: "ipv4"
+      RouteSelectionExpression: "$request.method $request.path"
+      CorsConfiguration:
+        MaxAge: 0
+        AllowOrigins:
+        - "*"
+        AllowCredentials: false
+        ExposeHeaders: []
+        AllowMethods:
+        - "GET"
+        - "POST"
+        - "OPTIONS"
+        AllowHeaders:
+        - "authorization"
+        - "content-type"
+      ProtocolType: "HTTP"
+      DisableExecuteApiEndpoint: false
+      Tags: {}
+      Name: "SmartNotesAPI"
+  CloudTrailTrailSmartnotestrail:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::CloudTrail::Trail"
+    DeletionPolicy: "Retain"
+    Properties:
+      IncludeGlobalServiceEvents: true
+      EventSelectors:
+      - IncludeManagementEvents: true
+        DataResources: []
+        ReadWriteType: "All"
+        ExcludeManagementEventSources: []
+      AggregationConfigurations: []
+      IsMultiRegionTrail: true
+      AdvancedEventSelectors: []
+      TrailName: "smartnotes-trail"
+      S3BucketName: "smartnotes-trail-775545827739"
+      EnableLogFileValidation: true
+      Tags: []
+      IsOrganizationTrail: false
+      InsightSelectors: []
+      IsLogging: true
+  CloudWatchAlarmSmartNotespipelinefailed:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::CloudWatch::Alarm"
+    DeletionPolicy: "Retain"
+    Properties:
+      ComparisonOperator: "GreaterThanOrEqualToThreshold"
+      TreatMissingData: "missing"
+      Dimensions:
+      - Value: "arn:aws:states:ap-southeast-2:775545827739:stateMachine:SmartNotesPipeline"
+        Name: "StateMachineArn"
+      Period: 300
+      EvaluationPeriods: 1
+      Namespace: "AWS/States"
+      OKActions: []
+      AlarmActions:
+      - "arn:aws:sns:ap-southeast-2:775545827739:ops-alerts"
+      MetricName: "ExecutionsFailed"
+      ActionsEnabled: true
+      AlarmName: "SmartNotes-pipeline-failed"
+      Statistic: "Sum"
+      InsufficientDataActions: []
+      DatapointsToAlarm: 1
+      Tags: []
+      Threshold: 1
+  LambdaFunctionLexFulfill:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::Lambda::Function"
+    DeletionPolicy: "Retain"
+    Properties:
+      MemorySize: 128
+      Description: ""
+      TracingConfig:
+        Mode: "PassThrough"
+      Timeout: 10
+      RuntimeManagementConfig:
+        UpdateRuntimeOn: "Auto"
+      Handler: "lambda_function.lambda_handler"
+      Code:
+        SourceKMSKeyArn:
+          Ref: "LambdaFunctionLexFulfillCodeSourceKMSKeyArnLnnwA"
+        S3ObjectVersion:
+          Ref: "LambdaFunctionLexFulfillCodeS3ObjectVersionLzixs"
+        S3Bucket:
+          Ref: "LambdaFunctionLexFulfillCodeS3BucketyieDX"
+        ZipFile:
+          Ref: "LambdaFunctionLexFulfillCodeZipFilek9peU"
+        S3Key:
+          Ref: "LambdaFunctionLexFulfillCodeS3Key1MwNj"
+        S3ObjectStorageMode:
+          Ref: "LambdaFunctionLexFulfillCodeS3ObjectStorageModeHZW6b"
+        ImageUri:
+          Ref: "LambdaFunctionLexFulfillCodeImageUriPo0nU"
+      Role: "arn:aws:iam::775545827739:role/PowerUserRole"
+      FileSystemConfigs: []
+      FunctionName: "lexFulfill"
+      Runtime: "python3.14"
+      PackageType: "Zip"
+      LoggingConfig:
+        LogFormat: "Text"
+        LogGroup: "/aws/lambda/lexFulfill"
+      RecursiveLoop: "Terminate"
+      EphemeralStorage:
+        Size: 512
+      Architectures:
+      - "x86_64"
+  DynamoDBTableSmartNotesTags:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::DynamoDB::Table"
+    DeletionPolicy: "Retain"
+    Properties:
+      SSESpecification:
+        SSEEnabled: false
+      TableName: "SmartNotes-Tags"
+      AttributeDefinitions:
+      - AttributeType: "S"
+        AttributeName: "noteId"
+      - AttributeType: "S"
+        AttributeName: "tag"
+      ContributorInsightsSpecification:
+        Enabled: false
+      BillingMode: "PAY_PER_REQUEST"
+      PointInTimeRecoverySpecification:
+        PointInTimeRecoveryEnabled: false
+      WarmThroughput:
+        ReadUnitsPerSecond: 12000
+        WriteUnitsPerSecond: 4000
+      KeySchema:
+      - KeyType: "HASH"
+        AttributeName: "tag"
+      - KeyType: "RANGE"
+        AttributeName: "noteId"
+      DeletionProtectionEnabled: false
+      TableClass: "STANDARD"
+      Tags: []
+      TimeToLiveSpecification:
+        Enabled: false
+  DynamoDBTableSmartNotesNotes:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::DynamoDB::Table"
+    DeletionPolicy: "Retain"
+    Properties:
+      SSESpecification:
+        SSEEnabled: false
+      ContributorInsightsSpecification:
+        Enabled: false
+      PointInTimeRecoverySpecification:
+        PointInTimeRecoveryEnabled: false
+      WarmThroughput:
+        ReadUnitsPerSecond: 12000
+        WriteUnitsPerSecond: 4000
+      TableName: "SmartNotes-Notes"
+      AttributeDefinitions:
+      - AttributeType: "S"
+        AttributeName: "createdAt"
+      - AttributeType: "S"
+        AttributeName: "noteId"
+      - AttributeType: "S"
+        AttributeName: "subject"
+      BillingMode: "PAY_PER_REQUEST"
+      GlobalSecondaryIndexes:
+      - IndexName: "subject-createdAt-index"
+        Projection:
+          ProjectionType: "ALL"
+          NonKeyAttributes: []
+        KeySchema:
+        - KeyType: "HASH"
+          AttributeName: "subject"
+        - KeyType: "RANGE"
+          AttributeName: "createdAt"
+        WarmThroughput:
+          ReadUnitsPerSecond: 12000
+          WriteUnitsPerSecond: 4000
+        ContributorInsightsSpecification:
+          Enabled: false
+      KeySchema:
+      - KeyType: "HASH"
+        AttributeName: "noteId"
+      DeletionProtectionEnabled: false
+      TableClass: "STANDARD"
+      Tags: []
+      TimeToLiveSpecification:
+        Enabled: false
+  LambdaFunctionWeeklyDigest:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::Lambda::Function"
+    DeletionPolicy: "Retain"
+    Properties:
+      MemorySize: 128
+      Description: ""
+      TracingConfig:
+        Mode: "PassThrough"
+      Timeout: 30
+      RuntimeManagementConfig:
+        UpdateRuntimeOn: "Auto"
+      Handler: "lambda_function.lambda_handler"
+      Code:
+        SourceKMSKeyArn:
+          Ref: "LambdaFunctionWeeklyDigestCodeSourceKMSKeyArnasu3S"
+        S3ObjectVersion:
+          Ref: "LambdaFunctionWeeklyDigestCodeS3ObjectVersionUTl9l"
+        S3Bucket:
+          Ref: "LambdaFunctionWeeklyDigestCodeS3BucketQhivV"
+        ZipFile:
+          Ref: "LambdaFunctionWeeklyDigestCodeZipFile7gxwp"
+        S3Key:
+          Ref: "LambdaFunctionWeeklyDigestCodeS3KeyQD0Jm"
+        S3ObjectStorageMode:
+          Ref: "LambdaFunctionWeeklyDigestCodeS3ObjectStorageMode5MhFe"
+        ImageUri:
+          Ref: "LambdaFunctionWeeklyDigestCodeImageUripx2Dc"
+      Role: "arn:aws:iam::775545827739:role/smartnotesrole"
+      FileSystemConfigs: []
+      FunctionName: "weeklyDigest"
+      Runtime: "python3.14"
+      PackageType: "Zip"
+      LoggingConfig:
+        LogFormat: "Text"
+        LogGroup: "/aws/lambda/weeklyDigest"
+      RecursiveLoop: "Terminate"
+      EphemeralStorage:
+        Size: 512
+      Architectures:
+      - "x86_64"
+  CloudFrontDistribution:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::CloudFront::Distribution"
+    DeletionPolicy: "Retain"
+    Properties:
+      DistributionConfig:
+        Logging:
+          IncludeCookies: false
+          Bucket: ""
+          Prefix: ""
+        Comment: ""
+        DefaultRootObject: "index.html"
+        Origins:
+        - ConnectionTimeout: 10
+          OriginAccessControlId: "E105T5ZLCFCODA"
+          ConnectionAttempts: 3
+          OriginCustomHeaders: []
+          DomainName: "smartnotes-site-775545827739.s3.ap-southeast-2.amazonaws.com"
+          OriginShield:
+            Enabled: false
+          S3OriginConfig:
+            OriginReadTimeout: 30
+            OriginAccessIdentity: ""
+          OriginPath: ""
+          Id: "smartnotes-site-775545827739.s3.ap-southeast-2.amazonaws.com-mv2nmzqpj6l"
+        ViewerCertificate:
+          MinimumProtocolVersion: "TLSv1"
+          SslSupportMethod: "vip"
+          CloudFrontDefaultCertificate: true
+        PriceClass: "PriceClass_All"
+        DefaultCacheBehavior:
+          Compress: true
+          FunctionAssociations: []
+          LambdaFunctionAssociations: []
+          TargetOriginId: "smartnotes-site-775545827739.s3.ap-southeast-2.amazonaws.com-mv2nmzqpj6l"
+          ViewerProtocolPolicy: "redirect-to-https"
+          GrpcConfig:
+            Enabled: false
+          TrustedSigners: []
+          FieldLevelEncryptionId: ""
+          TrustedKeyGroups: []
+          AllowedMethods:
+          - "HEAD"
+          - "GET"
+          CachedMethods:
+          - "HEAD"
+          - "GET"
+          SmoothStreaming: false
+          CachePolicyId: "658327ea-f89d-4fab-a63d-7e88639e58f6"
+        Staging: false
+        CustomErrorResponses: []
+        ContinuousDeploymentPolicyId: ""
+        OriginGroups:
+          Quantity: 0
+          Items: []
+        Enabled: true
+        Aliases: []
+        IPV6Enabled: true
+        WebACLId: ""
+        HttpVersion: "http2"
+        Restrictions:
+          GeoRestriction:
+            Locations: []
+            RestrictionType: "none"
+        CacheBehaviors: []
+      Tags:
+      - Value: "SmartNotesWebsite"
+        Key: "Name"
+  CognitoUserPool:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::Cognito::UserPool"
+    DeletionPolicy: "Retain"
+    Properties:
+      UserPoolTags: {}
+      Policies:
+        PasswordPolicy:
+          TemporaryPasswordValidityDays: 7
+          RequireUppercase: true
+          RequireNumbers: true
+          RequireLowercase: true
+          MinimumLength: 8
+          RequireSymbols: true
+        SignInPolicy:
+          AllowedFirstAuthFactors:
+          - "PASSWORD"
+      VerificationMessageTemplate:
+        DefaultEmailOption: "CONFIRM_WITH_CODE"
+      IssuerConfiguration:
+        Type: "ORIGINAL"
+      KeyConfiguration:
+        KeyType: "AWS_OWNED_KEY"
+      MfaConfiguration: "OFF"
+      Schema:
+      - DeveloperOnlyAttribute: false
+        Mutable: true
+        AttributeDataType: "String"
+        StringAttributeConstraints:
+          MaxLength: "2048"
+          MinLength: "0"
+        Required: false
+        Name: "profile"
+      - DeveloperOnlyAttribute: false
+        Mutable: true
+        AttributeDataType: "String"
+        StringAttributeConstraints:
+          MaxLength: "2048"
+          MinLength: "0"
+        Required: false
+        Name: "address"
+      - DeveloperOnlyAttribute: false
+        Mutable: true
+        AttributeDataType: "String"
+        StringAttributeConstraints:
+          MaxLength: "10"
+          MinLength: "10"
+        Required: false
+        Name: "birthdate"
+      - DeveloperOnlyAttribute: false
+        Mutable: true
+        AttributeDataType: "String"
+        StringAttributeConstraints:
+          MaxLength: "2048"
+          MinLength: "0"
+        Required: false
+        Name: "gender"
+      - DeveloperOnlyAttribute: false
+        Mutable: true
+        AttributeDataType: "String"
+        StringAttributeConstraints:
+          MaxLength: "2048"
+          MinLength: "0"
+        Required: false
+        Name: "preferred_username"
+      - DeveloperOnlyAttribute: false
+        Mutable: true
+        AttributeDataType: "Number"
+        Required: false
+        NumberAttributeConstraints:
+          MinValue: "0"
+        Name: "updated_at"
+      - DeveloperOnlyAttribute: false
+        Mutable: true
+        AttributeDataType: "String"
+        StringAttributeConstraints:
+          MaxLength: "2048"
+          MinLength: "0"
+        Required: false
+        Name: "website"
+      - DeveloperOnlyAttribute: false
+        Mutable: true
+        AttributeDataType: "String"
+        StringAttributeConstraints:
+          MaxLength: "2048"
+          MinLength: "0"
+        Required: false
+        Name: "picture"
+      - DeveloperOnlyAttribute: false
+        Mutable: true
+        AttributeDataType: "String"
+        StringAttributeConstraints: {}
+        Required: false
+        Name: "identities"
+      - DeveloperOnlyAttribute: false
+        Mutable: false
+        AttributeDataType: "String"
+        StringAttributeConstraints:
+          MaxLength: "2048"
+          MinLength: "1"
+        Required: true
+        Name: "sub"
+      - DeveloperOnlyAttribute: false
+        Mutable: true
+        AttributeDataType: "Boolean"
+        Required: false
+        Name: "email_verified"
+      - DeveloperOnlyAttribute: false
+        Mutable: true
+        AttributeDataType: "Boolean"
+        Required: false
+        Name: "phone_number_verified"
+      - DeveloperOnlyAttribute: false
+        Mutable: true
+        AttributeDataType: "String"
+        StringAttributeConstraints:
+          MaxLength: "2048"
+          MinLength: "0"
+        Required: false
+        Name: "phone_number"
+      - DeveloperOnlyAttribute: false
+        Mutable: true
+        AttributeDataType: "String"
+        StringAttributeConstraints:
+          MaxLength: "2048"
+          MinLength: "0"
+        Required: false
+        Name: "zoneinfo"
+      - DeveloperOnlyAttribute: false
+        Mutable: true
+        AttributeDataType: "String"
+        StringAttributeConstraints:
+          MaxLength: "2048"
+          MinLength: "0"
+        Required: false
+        Name: "locale"
+      - DeveloperOnlyAttribute: false
+        Mutable: true
+        AttributeDataType: "String"
+        StringAttributeConstraints:
+          MaxLength: "2048"
+          MinLength: "0"
+        Required: true
+        Name: "email"
+      - DeveloperOnlyAttribute: false
+        Mutable: true
+        AttributeDataType: "String"
+        StringAttributeConstraints:
+          MaxLength: "2048"
+          MinLength: "0"
+        Required: false
+        Name: "given_name"
+      - DeveloperOnlyAttribute: false
+        Mutable: true
+        AttributeDataType: "String"
+        StringAttributeConstraints:
+          MaxLength: "2048"
+          MinLength: "0"
+        Required: false
+        Name: "family_name"
+      - DeveloperOnlyAttribute: false
+        Mutable: true
+        AttributeDataType: "String"
+        StringAttributeConstraints:
+          MaxLength: "2048"
+          MinLength: "0"
+        Required: false
+        Name: "middle_name"
+      - DeveloperOnlyAttribute: false
+        Mutable: true
+        AttributeDataType: "String"
+        StringAttributeConstraints:
+          MaxLength: "2048"
+          MinLength: "0"
+        Required: false
+        Name: "name"
+      - DeveloperOnlyAttribute: false
+        Mutable: true
+        AttributeDataType: "String"
+        StringAttributeConstraints:
+          MaxLength: "2048"
+          MinLength: "0"
+        Required: false
+        Name: "nickname"
+      AdminCreateUserConfig:
+        UnusedAccountValidityDays: 7
+        AllowAdminCreateUserOnly: false
+      UserPoolTier: "ESSENTIALS"
+      DeletionProtection: "ACTIVE"
+      UsernameConfiguration:
+        CaseSensitive: false
+      UserPoolName: "User pool - jsm5x7"
+      UserAttributeUpdateSettings:
+        AttributesRequireVerificationBeforeUpdate: []
+      EmailConfiguration:
+        EmailSendingAccount: "COGNITO_DEFAULT"
+      AliasAttributes: []
+      LambdaConfig: {}
+      UsernameAttributes:
+      - "email"
+      AutoVerifiedAttributes:
+      - "email"
+      AccountRecoverySetting:
+        RecoveryMechanisms:
+        - Priority: 1
+          Name: "verified_email"
+        - Priority: 2
+          Name: "verified_phone_number"
+  LambdaFunctionSubscribe:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::Lambda::Function"
+    DeletionPolicy: "Retain"
+    Properties:
+      MemorySize: 128
+      Description: ""
+      TracingConfig:
+        Mode: "PassThrough"
+      Timeout: 30
+      RuntimeManagementConfig:
+        UpdateRuntimeOn: "Auto"
+      Handler: "lambda_function.lambda_handler"
+      Code:
+        SourceKMSKeyArn:
+          Ref: "LambdaFunctionSubscribeCodeSourceKMSKeyArnoYP99"
+        S3ObjectVersion:
+          Ref: "LambdaFunctionSubscribeCodeS3ObjectVersiong1BQJ"
+        S3Bucket:
+          Ref: "LambdaFunctionSubscribeCodeS3BucketaAudT"
+        ZipFile:
+          Ref: "LambdaFunctionSubscribeCodeZipFile6rotr"
+        S3Key:
+          Ref: "LambdaFunctionSubscribeCodeS3KeyN51Ov"
+        S3ObjectStorageMode:
+          Ref: "LambdaFunctionSubscribeCodeS3ObjectStorageModedWksF"
+        ImageUri:
+          Ref: "LambdaFunctionSubscribeCodeImageUrirLYar"
+      Role: "arn:aws:iam::775545827739:role/smartnotesrole"
+      FileSystemConfigs: []
+      FunctionName: "subscribe"
+      Runtime: "python3.14"
+      PackageType: "Zip"
+      LoggingConfig:
+        LogFormat: "Text"
+        LogGroup: "/aws/lambda/subscribe"
+      RecursiveLoop: "Terminate"
+      EphemeralStorage:
+        Size: 512
+      Architectures:
+      - "x86_64"
+  SQSQueueSmartnotesuploads:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::SQS::Queue"
+    DeletionPolicy: "Retain"
+    Properties:
+      SqsManagedSseEnabled: true
+      ReceiveMessageWaitTimeSeconds: 0
+      DelaySeconds: 0
+      RedrivePolicy:
+        deadLetterTargetArn: "arn:aws:sqs:ap-southeast-2:775545827739:smartnotes-uploads-dlq"
+        maxReceiveCount: 3
+      MessageRetentionPeriod: 345600
+      MaximumMessageSize: 1048576
+      VisibilityTimeout: 120
+      QueueName: "smartnotes-uploads"
+  IAMRoleSmartnotesrole:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::IAM::Role"
+    DeletionPolicy: "Retain"
+    Properties:
+      Path: "/"
+      ManagedPolicyArns:
+      - "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+      MaxSessionDuration: 3600
+      RoleName: "smartnotesrole"
+      Description: "Allows Lambda functions to call AWS services on your behalf."
+      Policies:
+      - PolicyDocument:
+          Version: "2012-10-17"
+          Statement:
+          - Resource: "*"
+            Action:
+            - "s3:GetObject"
+            - "s3:PutObject"
+            - "dynamodb:GetItem"
+            - "dynamodb:PutItem"
+            - "dynamodb:UpdateItem"
+            - "dynamodb:Query"
+            - "dynamodb:Scan"
+            - "dynamodb:BatchWriteItem"
+            - "sns:Publish"
+            - "sns:Subscribe"
+            - "sns:ListSubscriptionsByTopic"
+            - "sns:SetSubscriptionAttributes"
+            - "sqs:ReceiveMessage"
+            - "sqs:DeleteMessage"
+            - "sqs:GetQueueAttributes"
+            - "states:StartExecution"
+            - "rekognition:DetectModerationLabels"
+            - "rekognition:DetectText"
+            - "textract:DetectDocumentText"
+            - "textract:StartDocumentTextDetection"
+            - "textract:GetDocumentTextDetection"
+            - "comprehend:DetectKeyPhrases"
+            - "polly:SynthesizeSpeech"
+            - "translate:TranslateText"
+            - "lex:RecognizeText"
+            - "kms:Decrypt"
+            - "kms:GenerateDataKey"
+            Effect: "Allow"
+            Sid: "SmartNotesServices"
+        PolicyName: "smartnotesaccess"
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+        - Action: "sts:AssumeRole"
+          Effect: "Allow"
+          Principal:
+            Service: "lambda.amazonaws.com"
+  LambdaFunctionChat:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::Lambda::Function"
+    DeletionPolicy: "Retain"
+    Properties:
+      MemorySize: 128
+      Description: ""
+      TracingConfig:
+        Mode: "PassThrough"
+      Timeout: 30
+      RuntimeManagementConfig:
+        UpdateRuntimeOn: "Auto"
+      Handler: "lambda_function.lambda_handler"
+      Code:
+        SourceKMSKeyArn:
+          Ref: "LambdaFunctionChatCodeSourceKMSKeyArn9Xpzz"
+        S3ObjectVersion:
+          Ref: "LambdaFunctionChatCodeS3ObjectVersionYFC6s"
+        S3Bucket:
+          Ref: "LambdaFunctionChatCodeS3BucketiW1l4"
+        ZipFile:
+          Ref: "LambdaFunctionChatCodeZipFilejYYqE"
+        S3Key:
+          Ref: "LambdaFunctionChatCodeS3KeyQnlq8"
+        S3ObjectStorageMode:
+          Ref: "LambdaFunctionChatCodeS3ObjectStorageMode9IMyM"
+        ImageUri:
+          Ref: "LambdaFunctionChatCodeImageUridRVBe"
+      Role: "arn:aws:iam::775545827739:role/smartnotesrole"
+      FileSystemConfigs: []
+      FunctionName: "chat"
+      Runtime: "python3.14"
+      PackageType: "Zip"
+      LoggingConfig:
+        LogFormat: "Text"
+        LogGroup: "/aws/lambda/chat"
+      RecursiveLoop: "Terminate"
+      Environment:
+        Variables:
+          BOT_ID: "ABFA8ZB0XY"
+      EphemeralStorage:
+        Size: 512
+      Architectures:
+      - "x86_64"
+  S3BucketSmartnotestrail775545827739:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::S3::Bucket"
+    DeletionPolicy: "Retain"
+    Properties:
+      AbacStatus: "Disabled"
+      PublicAccessBlockConfiguration:
+        RestrictPublicBuckets: true
+        IgnorePublicAcls: true
+        BlockPublicPolicy: true
+        BlockPublicAcls: true
+      LifecycleConfiguration:
+        TransitionDefaultMinimumObjectSize: "all_storage_classes_128K"
+        Rules:
+        - Status: "Enabled"
+          Id: "expire-30-days"
+          Prefix: ""
+          ExpirationInDays: 30
+      BucketName: "smartnotes-trail-775545827739"
+      OwnershipControls:
+        Rules:
+        - ObjectOwnership: "BucketOwnerEnforced"
+      BucketEncryption:
+        ServerSideEncryptionConfiguration:
+        - BucketKeyEnabled: false
+          BlockedEncryptionTypes:
+            EncryptionType:
+            - "SSE-C"
+          ServerSideEncryptionByDefault:
+            SSEAlgorithm: "AES256"
+  SNSTopicOpsalerts:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::SNS::Topic"
+    DeletionPolicy: "Retain"
+    Properties:
+      FifoTopic: false
+      Subscription:
+      - Endpoint: "team-member@example.com"
+        Protocol: "email"
+      TracingConfig: "PassThrough"
+      MaximumMessageSize: 262144
+      ArchivePolicy: {}
+      TopicName: "ops-alerts"
+  LambdaFunctionTranslateNote:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::Lambda::Function"
+    DeletionPolicy: "Retain"
+    Properties:
+      MemorySize: 128
+      Description: ""
+      TracingConfig:
+        Mode: "PassThrough"
+      Timeout: 30
+      RuntimeManagementConfig:
+        UpdateRuntimeOn: "Auto"
+      Handler: "lambda_function.lambda_handler"
+      Code:
+        SourceKMSKeyArn:
+          Ref: "LambdaFunctionTranslateNoteCodeSourceKMSKeyArnqppDE"
+        S3ObjectVersion:
+          Ref: "LambdaFunctionTranslateNoteCodeS3ObjectVersionap1uw"
+        S3Bucket:
+          Ref: "LambdaFunctionTranslateNoteCodeS3Bucketza95R"
+        ZipFile:
+          Ref: "LambdaFunctionTranslateNoteCodeZipFilemCXau"
+        S3Key:
+          Ref: "LambdaFunctionTranslateNoteCodeS3Key9yWQh"
+        S3ObjectStorageMode:
+          Ref: "LambdaFunctionTranslateNoteCodeS3ObjectStorageMode9Irz7"
+        ImageUri:
+          Ref: "LambdaFunctionTranslateNoteCodeImageUriCvj5W"
+      Role: "arn:aws:iam::775545827739:role/smartnotesrole"
+      FileSystemConfigs: []
+      FunctionName: "translateNote"
+      Runtime: "python3.14"
+      PackageType: "Zip"
+      LoggingConfig:
+        LogFormat: "Text"
+        LogGroup: "/aws/lambda/translateNote"
+      RecursiveLoop: "Terminate"
+      EphemeralStorage:
+        Size: 512
+      Architectures:
+      - "x86_64"
+  StepFunctionsStateMachineStateMachineSmartNotesPipeline:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::StepFunctions::StateMachine"
+    DeletionPolicy: "Retain"
+    Properties:
+      DefinitionString: "{\"Comment\":\"Smart Notes pipeline: check, read, tag, speak,\
+        \ save, notify\",\"QueryLanguage\":\"JSONPath\",\"StartAt\":\"CheckSafety\"\
+        ,\"States\":{\"CheckSafety\":{\"Type\":\"Task\",\"Resource\":\"arn:aws:lambda:ap-southeast-2:775545827739:function:pipeCheckSafety\"\
+        ,\"Retry\":[{\"ErrorEquals\":[\"States.ALL\"],\"IntervalSeconds\":2,\"MaxAttempts\"\
+        :2,\"BackoffRate\":2}],\"Catch\":[{\"ErrorEquals\":[\"States.ALL\"],\"ResultPath\"\
+        :\"$.error\",\"Next\":\"MarkFailed\"}],\"Next\":\"IsItSafe\"},\"IsItSafe\"\
+        :{\"Type\":\"Choice\",\"Choices\":[{\"Variable\":\"$.safe\",\"BooleanEquals\"\
+        :false,\"Next\":\"HiddenBecauseUnsafe\"}],\"Default\":\"ReadText\"},\"HiddenBecauseUnsafe\"\
+        :{\"Type\":\"Succeed\"},\"ReadText\":{\"Type\":\"Task\",\"Resource\":\"arn:aws:lambda:ap-southeast-2:775545827739:function:pipeReadText\"\
+        ,\"Retry\":[{\"ErrorEquals\":[\"States.ALL\"],\"IntervalSeconds\":2,\"MaxAttempts\"\
+        :2,\"BackoffRate\":2}],\"Catch\":[{\"ErrorEquals\":[\"States.ALL\"],\"ResultPath\"\
+        :\"$.error\",\"Next\":\"MarkFailed\"}],\"Next\":\"IsTextractDone\"},\"IsTextractDone\"\
+        :{\"Type\":\"Choice\",\"Choices\":[{\"Variable\":\"$.textDone\",\"BooleanEquals\"\
+        :true,\"Next\":\"TagTopics\"}],\"Default\":\"Wait5Seconds\"},\"Wait5Seconds\"\
+        :{\"Type\":\"Wait\",\"Seconds\":5,\"Next\":\"CheckText\"},\"CheckText\":{\"\
+        Type\":\"Task\",\"Resource\":\"arn:aws:lambda:ap-southeast-2:775545827739:function:pipeCheckText\"\
+        ,\"Retry\":[{\"ErrorEquals\":[\"States.ALL\"],\"IntervalSeconds\":2,\"MaxAttempts\"\
+        :2,\"BackoffRate\":2}],\"Catch\":[{\"ErrorEquals\":[\"States.ALL\"],\"ResultPath\"\
+        :\"$.error\",\"Next\":\"MarkFailed\"}],\"Next\":\"IsTextractDone\"},\"TagTopics\"\
+        :{\"Type\":\"Task\",\"Resource\":\"arn:aws:lambda:ap-southeast-2:775545827739:function:pipeTagNote\"\
+        ,\"Retry\":[{\"ErrorEquals\":[\"States.ALL\"],\"IntervalSeconds\":2,\"MaxAttempts\"\
+        :2,\"BackoffRate\":2}],\"Catch\":[{\"ErrorEquals\":[\"States.ALL\"],\"ResultPath\"\
+        :\"$.error\",\"Next\":\"MarkFailed\"}],\"Next\":\"MakeAudio\"},\"MakeAudio\"\
+        :{\"Type\":\"Task\",\"Resource\":\"arn:aws:lambda:ap-southeast-2:775545827739:function:pipeMakeAudio\"\
+        ,\"Retry\":[{\"ErrorEquals\":[\"States.ALL\"],\"IntervalSeconds\":2,\"MaxAttempts\"\
+        :2,\"BackoffRate\":2}],\"Catch\":[{\"ErrorEquals\":[\"States.ALL\"],\"ResultPath\"\
+        :\"$.error\",\"Next\":\"MarkFailed\"}],\"Next\":\"SaveAndNotify\"},\"SaveAndNotify\"\
+        :{\"Type\":\"Task\",\"Resource\":\"arn:aws:lambda:ap-southeast-2:775545827739:function:pipeSaveNotify\"\
+        ,\"Retry\":[{\"ErrorEquals\":[\"States.ALL\"],\"IntervalSeconds\":2,\"MaxAttempts\"\
+        :2,\"BackoffRate\":2}],\"Catch\":[{\"ErrorEquals\":[\"States.ALL\"],\"ResultPath\"\
+        :\"$.error\",\"Next\":\"MarkFailed\"}],\"End\":true},\"MarkFailed\":{\"Type\"\
+        :\"Task\",\"Resource\":\"arn:aws:lambda:ap-southeast-2:775545827739:function:pipeMarkFailed\"\
+        ,\"Parameters\":{\"noteId.$\":\"$.noteId\"},\"Catch\":[{\"ErrorEquals\":[\"\
+        States.ALL\"],\"Next\":\"Failed\"}],\"Next\":\"Failed\"},\"Failed\":{\"Type\"\
+        :\"Fail\",\"Error\":\"NoteFailed\",\"Cause\":\"One of the pipeline steps failed.\
+        \ Look at the red step.\"}}}"
+      EncryptionConfiguration:
+        Type: "AWS_OWNED_KEY"
+      LoggingConfiguration:
+        IncludeExecutionData: false
+        Level: "OFF"
+      StateMachineName: "SmartNotesPipeline"
+      RoleArn: "arn:aws:iam::775545827739:role/StepFunctionsPowerUserRole"
+      Tags: []
+      StateMachineType: "STANDARD"
+      TracingConfiguration:
+        Enabled: false
+  LambdaFunctionPipeCheckText:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::Lambda::Function"
+    DeletionPolicy: "Retain"
+    Properties:
+      MemorySize: 128
+      Description: ""
+      TracingConfig:
+        Mode: "PassThrough"
+      Timeout: 60
+      RuntimeManagementConfig:
+        UpdateRuntimeOn: "Auto"
+      Handler: "lambda_function.lambda_handler"
+      Code:
+        SourceKMSKeyArn:
+          Ref: "LambdaFunctionPipeCheckTextCodeSourceKMSKeyArnw4jm5"
+        S3ObjectVersion:
+          Ref: "LambdaFunctionPipeCheckTextCodeS3ObjectVersionk4Js2"
+        S3Bucket:
+          Ref: "LambdaFunctionPipeCheckTextCodeS3BucketnKnyb"
+        ZipFile:
+          Ref: "LambdaFunctionPipeCheckTextCodeZipFilecOhVv"
+        S3Key:
+          Ref: "LambdaFunctionPipeCheckTextCodeS3Keyrd0IO"
+        S3ObjectStorageMode:
+          Ref: "LambdaFunctionPipeCheckTextCodeS3ObjectStorageModewLjZD"
+        ImageUri:
+          Ref: "LambdaFunctionPipeCheckTextCodeImageUrirERKM"
+      Role: "arn:aws:iam::775545827739:role/smartnotesrole"
+      FileSystemConfigs: []
+      FunctionName: "pipeCheckText"
+      Runtime: "python3.14"
+      PackageType: "Zip"
+      LoggingConfig:
+        LogFormat: "Text"
+        LogGroup: "/aws/lambda/pipeCheckText"
+      RecursiveLoop: "Terminate"
+      EphemeralStorage:
+        Size: 512
+      Architectures:
+      - "x86_64"
+  LambdaFunctionPipeMakeAudio:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::Lambda::Function"
+    DeletionPolicy: "Retain"
+    Properties:
+      MemorySize: 128
+      Description: ""
+      TracingConfig:
+        Mode: "PassThrough"
+      Timeout: 60
+      RuntimeManagementConfig:
+        UpdateRuntimeOn: "Auto"
+      Handler: "lambda_function.lambda_handler"
+      Code:
+        SourceKMSKeyArn:
+          Ref: "LambdaFunctionPipeMakeAudioCodeSourceKMSKeyArnVwf3l"
+        S3ObjectVersion:
+          Ref: "LambdaFunctionPipeMakeAudioCodeS3ObjectVersionb362U"
+        S3Bucket:
+          Ref: "LambdaFunctionPipeMakeAudioCodeS3BucketV0WIQ"
+        ZipFile:
+          Ref: "LambdaFunctionPipeMakeAudioCodeZipFileWSw42"
+        S3Key:
+          Ref: "LambdaFunctionPipeMakeAudioCodeS3Key6LheL"
+        S3ObjectStorageMode:
+          Ref: "LambdaFunctionPipeMakeAudioCodeS3ObjectStorageModecMaoj"
+        ImageUri:
+          Ref: "LambdaFunctionPipeMakeAudioCodeImageUri5vt6U"
+      Role: "arn:aws:iam::775545827739:role/smartnotesrole"
+      FileSystemConfigs: []
+      FunctionName: "pipeMakeAudio"
+      Runtime: "python3.14"
+      PackageType: "Zip"
+      LoggingConfig:
+        LogFormat: "Text"
+        LogGroup: "/aws/lambda/pipeMakeAudio"
+      RecursiveLoop: "Terminate"
+      EphemeralStorage:
+        Size: 512
+      Architectures:
+      - "x86_64"
+  S3BucketSmartnotessr20261010:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::S3::Bucket"
+    DeletionPolicy: "Retain"
+    Properties:
+      AbacStatus: "Disabled"
+      PublicAccessBlockConfiguration:
+        RestrictPublicBuckets: true
+        IgnorePublicAcls: true
+        BlockPublicPolicy: true
+        BlockPublicAcls: true
+      BucketName: "smartnotes-sr-20261010"
+      CorsConfiguration:
+        CorsRules:
+        - AllowedHeaders:
+          - "*"
+          AllowedMethods:
+          - "PUT"
+          - "GET"
+          AllowedOrigins:
+          - "*"
+      OwnershipControls:
+        Rules:
+        - ObjectOwnership: "BucketOwnerEnforced"
+      BucketEncryption:
+        ServerSideEncryptionConfiguration:
+        - BucketKeyEnabled: true
+          BlockedEncryptionTypes:
+            EncryptionType:
+            - "SSE-C"
+          ServerSideEncryptionByDefault:
+            SSEAlgorithm: "aws:kms"
+            KMSMasterKeyID: "arn:aws:kms:ap-southeast-2:775545827739:alias/aws/s3"
+      NotificationConfiguration:
+        QueueConfigurations:
+        - Filter:
+            S3Key:
+              Rules:
+              - Value: "notes/"
+                Name: "Prefix"
+          Event: "s3:ObjectCreated:*"
+          Queue: "arn:aws:sqs:ap-southeast-2:775545827739:smartnotes-uploads"
+        TopicConfigurations: []
+        LambdaConfigurations: []
+  S3BucketSmartnotessite775545827739:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::S3::Bucket"
+    DeletionPolicy: "Retain"
+    Properties:
+      AbacStatus: "Disabled"
+      PublicAccessBlockConfiguration:
+        RestrictPublicBuckets: true
+        IgnorePublicAcls: true
+        BlockPublicPolicy: true
+        BlockPublicAcls: true
+      BucketName: "smartnotes-site-775545827739"
+      OwnershipControls:
+        Rules:
+        - ObjectOwnership: "BucketOwnerEnforced"
+      BucketEncryption:
+        ServerSideEncryptionConfiguration:
+        - BucketKeyEnabled: true
+          BlockedEncryptionTypes:
+            EncryptionType:
+            - "SSE-C"
+          ServerSideEncryptionByDefault:
+            SSEAlgorithm: "AES256"
+  IAMRoleAWSServiceRoleForLexV2BotsSmartNotesBot:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::IAM::Role"
+    DeletionPolicy: "Retain"
+    Properties:
+      Path: "/aws-service-role/lexv2.amazonaws.com/"
+      ManagedPolicyArns:
+      - "arn:aws:iam::aws:policy/aws-service-role/AmazonLexV2BotPolicy"
+      MaxSessionDuration: 3600
+      RoleName: "AWSServiceRoleForLexV2Bots_SmartNotesBot"
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+        - Action: "sts:AssumeRole"
+          Effect: "Allow"
+          Principal:
+            Service: "lexv2.amazonaws.com"
+  LambdaFunctionServiceCheck:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::Lambda::Function"
+    DeletionPolicy: "Retain"
+    Properties:
+      MemorySize: 128
+      Description: ""
+      TracingConfig:
+        Mode: "PassThrough"
+      Timeout: 60
+      RuntimeManagementConfig:
+        UpdateRuntimeOn: "Auto"
+      Handler: "lambda_function.lambda_handler"
+      Code:
+        SourceKMSKeyArn:
+          Ref: "LambdaFunctionServiceCheckCodeSourceKMSKeyArnVnxem"
+        S3ObjectVersion:
+          Ref: "LambdaFunctionServiceCheckCodeS3ObjectVersionKeZ77"
+        S3Bucket:
+          Ref: "LambdaFunctionServiceCheckCodeS3BucketKP1zu"
+        ZipFile:
+          Ref: "LambdaFunctionServiceCheckCodeZipFilejcpIk"
+        S3Key:
+          Ref: "LambdaFunctionServiceCheckCodeS3KeyzmyLf"
+        S3ObjectStorageMode:
+          Ref: "LambdaFunctionServiceCheckCodeS3ObjectStorageModeBGxFJ"
+        ImageUri:
+          Ref: "LambdaFunctionServiceCheckCodeImageUriaLP1h"
+      Role: "arn:aws:iam::775545827739:role/smartnotesrole"
+      FileSystemConfigs: []
+      FunctionName: "serviceCheck"
+      Runtime: "python3.14"
+      PackageType: "Zip"
+      LoggingConfig:
+        LogFormat: "Text"
+        LogGroup: "/aws/lambda/serviceCheck"
+      RecursiveLoop: "Terminate"
+      EphemeralStorage:
+        Size: 512
+      Architectures:
+      - "x86_64"
+  SNSTopicWeeklydigest:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::SNS::Topic"
+    DeletionPolicy: "Retain"
+    Properties:
+      FifoTopic: false
+      Subscription:
+      - Endpoint: "team-member@example.com"
+        Protocol: "email"
+      TracingConfig: "PassThrough"
+      MaximumMessageSize: 262144
+      ArchivePolicy: {}
+      TopicName: "weekly-digest"
+  LambdaFunctionPipeTagNote:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::Lambda::Function"
+    DeletionPolicy: "Retain"
+    Properties:
+      MemorySize: 128
+      Description: ""
+      TracingConfig:
+        Mode: "PassThrough"
+      Timeout: 30
+      RuntimeManagementConfig:
+        UpdateRuntimeOn: "Auto"
+      Handler: "lambda_function.lambda_handler"
+      Code:
+        SourceKMSKeyArn:
+          Ref: "LambdaFunctionPipeTagNoteCodeSourceKMSKeyArnjraqA"
+        S3ObjectVersion:
+          Ref: "LambdaFunctionPipeTagNoteCodeS3ObjectVersionQFj1w"
+        S3Bucket:
+          Ref: "LambdaFunctionPipeTagNoteCodeS3Bucket9gA5J"
+        ZipFile:
+          Ref: "LambdaFunctionPipeTagNoteCodeZipFilexc6RC"
+        S3Key:
+          Ref: "LambdaFunctionPipeTagNoteCodeS3KeyTdvhz"
+        S3ObjectStorageMode:
+          Ref: "LambdaFunctionPipeTagNoteCodeS3ObjectStorageModeNav7d"
+        ImageUri:
+          Ref: "LambdaFunctionPipeTagNoteCodeImageUri37tQJ"
+      Role: "arn:aws:iam::775545827739:role/smartnotesrole"
+      FileSystemConfigs: []
+      FunctionName: "pipeTagNote"
+      Runtime: "python3.14"
+      PackageType: "Zip"
+      LoggingConfig:
+        LogFormat: "Text"
+        LogGroup: "/aws/lambda/pipeTagNote"
+      RecursiveLoop: "Terminate"
+      EphemeralStorage:
+        Size: 512
+      Architectures:
+      - "x86_64"
+  LambdaFunctionModerateNote:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::Lambda::Function"
+    DeletionPolicy: "Retain"
+    Properties:
+      MemorySize: 128
+      Description: ""
+      TracingConfig:
+        Mode: "PassThrough"
+      Timeout: 30
+      RuntimeManagementConfig:
+        UpdateRuntimeOn: "Auto"
+      Handler: "lambda_function.lambda_handler"
+      Code:
+        SourceKMSKeyArn:
+          Ref: "LambdaFunctionModerateNoteCodeSourceKMSKeyArn0y2eY"
+        S3ObjectVersion:
+          Ref: "LambdaFunctionModerateNoteCodeS3ObjectVersionDivMV"
+        S3Bucket:
+          Ref: "LambdaFunctionModerateNoteCodeS3BucketRd62Y"
+        ZipFile:
+          Ref: "LambdaFunctionModerateNoteCodeZipFileGdAic"
+        S3Key:
+          Ref: "LambdaFunctionModerateNoteCodeS3KeyAhYUb"
+        S3ObjectStorageMode:
+          Ref: "LambdaFunctionModerateNoteCodeS3ObjectStorageModeTIvxd"
+        ImageUri:
+          Ref: "LambdaFunctionModerateNoteCodeImageUrihViID"
+      Role: "arn:aws:iam::775545827739:role/smartnotesrole"
+      FileSystemConfigs: []
+      FunctionName: "moderateNote"
+      Runtime: "python3.14"
+      PackageType: "Zip"
+      LoggingConfig:
+        LogFormat: "Text"
+        LogGroup: "/aws/lambda/moderateNote"
+      RecursiveLoop: "Terminate"
+      EphemeralStorage:
+        Size: 512
+      Architectures:
+      - "x86_64"
+  LambdaFunctionPipeReadText:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::Lambda::Function"
+    DeletionPolicy: "Retain"
+    Properties:
+      MemorySize: 512
+      Description: ""
+      TracingConfig:
+        Mode: "PassThrough"
+      Timeout: 60
+      RuntimeManagementConfig:
+        UpdateRuntimeOn: "Auto"
+      Handler: "lambda_function.lambda_handler"
+      Code:
+        SourceKMSKeyArn:
+          Ref: "LambdaFunctionPipeReadTextCodeSourceKMSKeyArnzuLLA"
+        S3ObjectVersion:
+          Ref: "LambdaFunctionPipeReadTextCodeS3ObjectVersion47KUx"
+        S3Bucket:
+          Ref: "LambdaFunctionPipeReadTextCodeS3BucketyS5S6"
+        ZipFile:
+          Ref: "LambdaFunctionPipeReadTextCodeZipFileLotlL"
+        S3Key:
+          Ref: "LambdaFunctionPipeReadTextCodeS3KeyijeNt"
+        S3ObjectStorageMode:
+          Ref: "LambdaFunctionPipeReadTextCodeS3ObjectStorageModea7YcD"
+        ImageUri:
+          Ref: "LambdaFunctionPipeReadTextCodeImageUrilGYaM"
+      Role: "arn:aws:iam::775545827739:role/smartnotesrole"
+      FileSystemConfigs: []
+      FunctionName: "pipeReadText"
+      Runtime: "python3.14"
+      PackageType: "Zip"
+      LoggingConfig:
+        LogFormat: "Text"
+        LogGroup: "/aws/lambda/pipeReadText"
+      RecursiveLoop: "Terminate"
+      EphemeralStorage:
+        Size: 512
+      Layers:
+      - "arn:aws:lambda:ap-southeast-2:775545827739:layer:pypdf:1"
+      Architectures:
+      - "x86_64"
+  LexBot:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::Lex::Bot"
+    DeletionPolicy: "Retain"
+    Properties:
+      RoleArn: "arn:aws:iam::775545827739:role/aws-service-role/lexv2.amazonaws.com/AWSServiceRoleForLexV2Bots_SmartNotesBot"
+      BotType: "Bot"
+      ErrorLogSettings:
+        Enabled: false
+      IdleSessionTTLInSeconds: 300
+      Name: "SmartNotesBot"
+      DataPrivacy:
+        ChildDirected: false
+  EventsRuleRuleweeklydigestsunday:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::Events::Rule"
+    DeletionPolicy: "Retain"
+    Properties:
+      EventBusName: "default"
+      ScheduleExpression: "cron(30 12 ? * SUN *)"
+      State: "ENABLED"
+      Targets:
+      - Arn: "arn:aws:lambda:ap-southeast-2:775545827739:function:weeklyDigest"
+        Id: "tu9wf37l28zedltraex"
+      Id: "weekly-digest-sunday"
+      Tags: []
+      Name: "weekly-digest-sunday"
+

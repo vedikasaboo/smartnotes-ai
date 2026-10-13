@@ -1,0 +1,41 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "SmartNotesServices",
+            "Effect": "Allow",
+            "Action": [
+                "s3:GetObject",
+                "s3:PutObject",
+                "dynamodb:GetItem",
+                "dynamodb:PutItem",
+                "dynamodb:UpdateItem",
+                "dynamodb:Query",
+                "dynamodb:Scan",
+                "dynamodb:BatchWriteItem",
+                "dynamodb:DeleteItem",
+                "sns:Publish",
+                "sns:Subscribe",
+                "sns:ListSubscriptionsByTopic",
+                "sns:SetSubscriptionAttributes",
+                "sns:GetSubscriptionAttributes",
+                "sqs:ReceiveMessage",
+                "sqs:DeleteMessage",
+                "sqs:GetQueueAttributes",
+                "states:StartExecution",
+                "rekognition:DetectModerationLabels",
+                "rekognition:DetectText",
+                "textract:DetectDocumentText",
+                "textract:StartDocumentTextDetection",
+                "textract:GetDocumentTextDetection",
+                "comprehend:DetectKeyPhrases",
+                "polly:SynthesizeSpeech",
+                "translate:TranslateText",
+                "lex:RecognizeText",
+                "kms:Decrypt",
+                "kms:GenerateDataKey"
+            ],
+            "Resource": "*"
+        }
+    ]
+}

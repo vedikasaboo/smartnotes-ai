@@ -1,0 +1,635 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Smart Notes</title>
+<style>
+  :root {
+    --ink: #1a2230;
+    --ink-soft: #4a5566;
+    --muted: #6b7585;
+    --line: #dde1e7;
+    --line-soft: #eceff3;
+    --bg: #f6f7f9;
+    --surface: #ffffff;
+    --accent: #1f4b7a;
+    --accent-hover: #173a60;
+    --accent-tint: #eaf0f7;
+    --ok: #1e6b43;
+    --ok-tint: #e7f3ec;
+    --warn: #8a4b0f;
+    --error: #a12a2a;
+    --radius: 6px;
+    --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: var(--font); font-size: 15px; line-height: 1.5; color: var(--ink); background: var(--bg); }
+  [hidden] { display: none !important; }
+
+  /* Top bar */
+  .topbar { background: var(--surface); border-bottom: 1px solid var(--line); }
+  .topbar-inner { max-width: 1120px; margin: 0 auto; padding: 0 24px; height: 60px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+  .brand { font-weight: 650; font-size: 17px; letter-spacing: -0.01em; color: var(--ink); }
+  .brand span { color: var(--muted); font-weight: 400; margin-left: 10px; font-size: 14px; }
+  .account { display: flex; align-items: center; gap: 12px; font-size: 14px; color: var(--ink-soft); }
+  .role { font-size: 12px; font-weight: 600; color: var(--accent); background: var(--accent-tint); padding: 2px 8px; border-radius: 99px; }
+
+  /* Layout */
+  .page { max-width: 1120px; margin: 0 auto; padding: 32px 24px 64px; }
+  .layout { display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: 24px; align-items: start; }
+  .main, .side { display: grid; gap: 24px; min-width: 0; }
+  @media (max-width: 900px) {
+    .layout { grid-template-columns: 1fr; }
+    .page { padding: 20px 16px 48px; }
+    .topbar-inner { padding: 0 16px; }
+    .brand span { display: none; }
+  }
+
+  .panel { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); }
+  .panel-head { padding: 16px 20px; border-bottom: 1px solid var(--line-soft); }
+  .panel-head h2 { margin: 0; font-size: 15px; font-weight: 650; }
+  .panel-head p { margin: 2px 0 0; font-size: 13px; color: var(--muted); }
+  .panel-body { padding: 16px 20px 20px; }
+
+  /* Forms */
+  label.field { display: block; font-size: 13px; font-weight: 600; color: var(--ink-soft); margin-bottom: 12px; }
+  label.field > input, label.field > select { margin-top: 4px; }
+  input[type=text], input[type=number], input[type=search], select {
+    width: 100%; font: inherit; font-size: 14px; color: var(--ink); background: var(--surface);
+    border: 1px solid var(--line); border-radius: var(--radius); padding: 8px 10px; height: 38px;
+  }
+  input:focus, select:focus, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; border-color: var(--accent); }
+  input[type=file] { font: inherit; font-size: 13px; width: 100%; padding: 8px; border: 1px dashed var(--line); border-radius: var(--radius); background: var(--bg); margin-top: 4px; }
+  .row { display: flex; gap: 8px; }
+  .row > * { flex: 1; min-width: 0; }
+  .row > .fixed { flex: 0 0 auto; }
+
+  button { font: inherit; font-size: 14px; font-weight: 600; border-radius: var(--radius); cursor: pointer; height: 38px; padding: 0 16px; white-space: nowrap; }
+  .btn { background: var(--accent); color: #fff; border: 1px solid var(--accent); }
+  .btn:hover { background: var(--accent-hover); }
+  .btn:disabled { opacity: .6; cursor: default; }
+  .btn-quiet { background: var(--surface); color: var(--ink); border: 1px solid var(--line); }
+  .btn-quiet:hover { background: var(--bg); }
+  .btn-link { background: none; border: none; color: var(--accent); padding: 0; height: auto; font-weight: 600; font-size: 13px; }
+  .btn-link:hover { text-decoration: underline; }
+  .btn-link.danger { color: var(--error); }
+  .btn-full { width: 100%; }
+
+  .status { font-size: 13px; margin: 10px 0 0; color: var(--muted); min-height: 1em; }
+  .status.ok { color: var(--ok); }
+  .status.error { color: var(--error); }
+
+  /* Search + results */
+  .search-bar { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 8px; }
+  .filters { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-top: 12px; }
+  .filters select { width: auto; flex: 1 1 160px; max-width: 240px; }
+  .filters .hint { font-size: 13px; color: var(--muted); }
+  .results-head { display: flex; justify-content: space-between; align-items: baseline; padding: 14px 20px; border-top: 1px solid var(--line-soft); border-bottom: 1px solid var(--line-soft); background: #fbfbfc; }
+  .results-head h3 { margin: 0; font-size: 13px; font-weight: 600; color: var(--ink-soft); text-transform: uppercase; letter-spacing: .04em; }
+  .results-head span { font-size: 13px; color: var(--muted); }
+  .empty { padding: 32px 20px; text-align: center; color: var(--muted); font-size: 14px; }
+
+  .note { padding: 16px 20px; border-bottom: 1px solid var(--line-soft); }
+  .note:last-child { border-bottom: none; }
+  .note-title { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .note-title strong { font-size: 15px; font-weight: 650; }
+  .verified { font-size: 12px; font-weight: 600; color: var(--ok); background: var(--ok-tint); padding: 1px 8px; border-radius: 99px; }
+  .meta { font-size: 13px; color: var(--muted); margin-top: 2px; }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+  .tag { font-size: 12px; color: var(--ink-soft); background: var(--bg); border: 1px solid var(--line-soft); padding: 1px 8px; border-radius: 4px; cursor: pointer; }
+  .tag:hover { border-color: var(--accent); color: var(--accent); }
+  .actions { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; margin-top: 12px; }
+  .actions .sep { width: 1px; height: 14px; background: var(--line); }
+  .actions select { width: auto; height: 30px; padding: 2px 8px; font-size: 13px; }
+  .note-extra:not(:empty) { margin-top: 12px; }
+  .note-extra audio { width: 100%; max-width: 420px; }
+  .translation { white-space: pre-wrap; font-size: 14px; background: var(--bg); border: 1px solid var(--line-soft); border-radius: var(--radius); padding: 12px 14px; max-height: 320px; overflow: auto; }
+  .extra-label { font-size: 12px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: .04em; margin-bottom: 6px; }
+  .note-msg { font-size: 13px; color: var(--muted); }
+  .listen { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-top: 10px; }
+  .listen audio { width: 100%; max-width: 420px; }
+  .note-msg.error { color: var(--error); }
+
+  /* Chat */
+  .chat-log { max-height: 260px; overflow: auto; display: grid; gap: 10px; margin-bottom: 12px; }
+  .chat-log:empty { display: none; }
+  .msg { font-size: 14px; }
+  .msg .who { display: block; font-size: 12px; font-weight: 600; color: var(--muted); }
+  .msg.bot .text { color: var(--ink); }
+  .msg.you .text { color: var(--ink-soft); }
+
+  /* Subjects */
+  .checks { display: grid; gap: 6px; margin-bottom: 14px; }
+  .checks label { display: flex; align-items: center; gap: 8px; font-size: 14px; cursor: pointer; }
+  .checks input { width: 16px; height: 16px; accent-color: var(--accent); }
+
+  /* Signed out */
+  .intro { max-width: 640px; margin: 48px auto; }
+  .intro h1 { font-size: 30px; line-height: 1.2; letter-spacing: -0.02em; margin: 0 0 12px; }
+  .intro p.lead { font-size: 16px; color: var(--ink-soft); margin: 0 0 24px; }
+  .features { list-style: none; padding: 0; margin: 40px 0 0; border-top: 1px solid var(--line); }
+  .features li { padding: 14px 0; border-bottom: 1px solid var(--line); display: grid; grid-template-columns: 160px 1fr; gap: 16px; font-size: 14px; color: var(--ink-soft); }
+  .features li b { color: var(--ink); font-weight: 600; }
+  @media (max-width: 560px) { .features li { grid-template-columns: 1fr; gap: 2px; } }
+
+  /* Groups */
+  .group-list { display: grid; gap: 0; margin: -4px 0 16px; }
+  .group-list:empty { display: none; }
+  .group { padding: 10px 0; border-bottom: 1px solid var(--line-soft); }
+  .group:last-child { border-bottom: none; }
+  .group-top { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+  .group-name { font-weight: 600; font-size: 14px; }
+  .group-role { font-size: 12px; color: var(--muted); }
+  .group-code { font-size: 13px; color: var(--ink-soft); margin-top: 4px; display: flex; align-items: center; gap: 8px; }
+  .group-code code { font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 13px; letter-spacing: .08em; background: var(--bg); border: 1px solid var(--line-soft); border-radius: 4px; padding: 1px 6px; color: var(--ink); }
+  .group-links { display: flex; gap: 14px; margin-top: 6px; }
+  .members { margin-top: 8px; display: grid; gap: 4px; font-size: 13px; }
+  .member { display: flex; justify-content: space-between; gap: 8px; color: var(--ink-soft); }
+  .member span:first-child { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .subhead { font-size: 12px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: .04em; margin: 4px 0 6px; }
+  .group-forms { display: grid; gap: 12px; padding-top: 12px; border-top: 1px solid var(--line-soft); }
+  .group-forms.first { border-top: none; padding-top: 0; }
+
+  footer { text-align: center; font-size: 12px; color: var(--muted); padding: 0 16px 32px; }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">Smart Notes<span>Shared class notes</span></div>
+    <div class="account" id="who"></div>
+  </div>
+</header>
+
+<main class="page">
+  <section id="loggedOut" class="intro">
+    <h1>Class notes, searchable by topic.</h1>
+    <p class="lead">Upload a photo or PDF of your notes. Smart Notes reads the text, tags the topics, records an audio version and lets classmates who follow the subject know.</p>
+    <button class="btn" onclick="login()">Sign in or create an account</button>
+    <ul class="features">
+      <li><b>Private groups</b>Create a group for your class, share the invite code, and only members see its notes.</li>
+      <li><b>Search by topic</b>Find notes on a topic like deadlock or normalization across your groups.</li>
+      <li><b>Listen</b>Every note gets an audio version you can play on the go.</li>
+      <li><b>Ask</b>Ask the assistant whether notes exist on a topic.</li>
+      <li><b>Verified notes</b>The group admin can mark notes as verified, or hide ones that shouldn't be there.</li>
+      <li><b>Subject alerts</b>Get an email when new notes are added to subjects you follow.</li>
+    </ul>
+  </section>
+
+  <div id="app" class="layout" hidden>
+    <div class="main">
+      <section class="panel">
+        <div class="panel-head">
+          <h2>Ask the assistant</h2>
+          <p>For example: "Do we have notes on paging?"</p>
+        </div>
+        <div class="panel-body">
+          <div id="chatLog" class="chat-log" aria-live="polite"></div>
+          <form class="row" onsubmit="event.preventDefault(); chat()">
+            <input id="chatInput" type="text" placeholder="Ask a question" aria-label="Question">
+            <button class="btn fixed" type="submit">Ask</button>
+          </form>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head">
+          <h2>Find notes</h2>
+          <p>Search by topic, or browse a subject.</p>
+        </div>
+        <div class="panel-body">
+          <form class="search-bar" onsubmit="event.preventDefault(); search('tag')">
+            <input id="tag" type="search" placeholder="Topic, e.g. deadlock" aria-label="Topic">
+            <button class="btn" type="submit">Search</button>
+          </form>
+          <div class="filters">
+            <select id="searchGroup" aria-label="Group" onchange="search(lastMode)"></select>
+            <select id="browseSubject" aria-label="Subject"></select>
+            <button class="btn-quiet" onclick="search('subject')">Browse subject</button>
+            <button class="btn-link" onclick="search('recent')">Show recent</button>
+          </div>
+        </div>
+        <div class="results-head">
+          <h3 id="resultsTitle">Recent notes</h3>
+          <span id="resultsCount"></span>
+        </div>
+        <div id="results"></div>
+      </section>
+    </div>
+
+    <aside class="side">
+      <section class="panel">
+        <div class="panel-head">
+          <h2>Groups</h2>
+          <p>Notes are shared only with members of a group.</p>
+        </div>
+        <div class="panel-body">
+          <div id="groupList" class="group-list"></div>
+          <div id="groupForms" class="group-forms">
+            <div>
+              <div class="subhead">Join with an invite code</div>
+              <form class="row" onsubmit="event.preventDefault(); joinGroup()">
+                <input id="joinCode" type="text" placeholder="e.g. K7PX2M3Q" aria-label="Invite code" autocomplete="off">
+                <button class="btn-quiet fixed" type="submit">Join</button>
+              </form>
+            </div>
+            <div>
+              <div class="subhead">Create a group</div>
+              <form class="row" onsubmit="event.preventDefault(); createGroup()">
+                <input id="groupName" type="text" placeholder="e.g. CSE-B Semester 5" aria-label="Group name" maxlength="60">
+                <button class="btn-quiet fixed" type="submit">Create</button>
+              </form>
+            </div>
+          </div>
+          <p id="groupMsg" class="status"></p>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head">
+          <h2>Upload a note</h2>
+          <p>PDF up to 20 MB, or JPG/PNG up to 10 MB.</p>
+        </div>
+        <div class="panel-body">
+          <label class="field">Title
+            <input id="title" type="text" placeholder="e.g. Deadlocks, Unit 3">
+          </label>
+          <label class="field">Group
+            <select id="uploadGroup"></select>
+          </label>
+          <label class="field">Subject
+            <select id="subject"></select>
+          </label>
+          <div class="row">
+            <label class="field">Unit <input id="unit" type="text" placeholder="3"></label>
+            <label class="field">Semester <input id="semester" type="number" min="1" max="10" placeholder="5"></label>
+          </div>
+          <label class="field">File
+            <input id="file" type="file" accept=".pdf,.jpg,.jpeg,.png">
+          </label>
+          <button class="btn btn-full" id="uploadBtn" onclick="upload()">Upload</button>
+          <p id="uploadMsg" class="status"></p>
+        </div>
+      </section>
+
+
+      <section class="panel">
+        <div class="panel-head">
+          <h2>Subject alerts</h2>
+          <p>Email me when notes are added to my groups in:</p>
+        </div>
+        <div class="panel-body">
+          <div id="follow" class="checks"></div>
+          <button class="btn-quiet btn-full" onclick="follow()">Save preferences</button>
+          <p id="followMsg" class="status"></p>
+        </div>
+      </section>
+    </aside>
+  </div>
+</main>
+<footer>Smart Notes</footer>
+
+<script>
+// ====== 1. CHANGE THESE FOUR THINGS (see the guide, Part 10) ======
+const CONFIG = {
+  API_URL: "https://qrhk5zy23k.execute-api.ap-southeast-2.amazonaws.com",
+  COGNITO_DOMAIN: "https://ap-southeast-2kauahkedw.auth.ap-southeast-2.amazoncognito.com",
+  CLIENT_ID: "5mbafn8t5ev17m8pikideogdi5",
+  SUBJECTS: ["Operating Systems", "DBMS", "Computer Networks", "Cloud Computing", "General"]
+};
+// ===================================================================
+
+const REDIRECT = location.origin + "/";
+const LANGUAGES = [["en", "English"], ["hi", "Hindi"], ["te", "Telugu"], ["ta", "Tamil"]];
+const $ = (id) => document.getElementById(id);
+let token = null, user = null;
+let myGroups = [], lastMode = "recent";
+
+// Cognito sends us back here with #id_token=... in the address bar. Keep it.
+const hash = new URLSearchParams(location.hash.slice(1));
+if (hash.get("id_token")) {
+  sessionStorage.setItem("token", hash.get("id_token"));
+  history.replaceState(null, "", REDIRECT);
+}
+token = sessionStorage.getItem("token");
+if (token) {
+  user = JSON.parse(atob(token.split(".")[1].replace(/-/g, "+").replace(/_/g, "/")));
+  if (user.exp * 1000 < Date.now()) { token = null; user = null; sessionStorage.removeItem("token"); }
+}
+
+function login() {
+  location.href = `${CONFIG.COGNITO_DOMAIN}/login?client_id=${CONFIG.CLIENT_ID}` +
+    `&response_type=token&scope=openid+email&redirect_uri=${encodeURIComponent(REDIRECT)}`;
+}
+function logout() {
+  sessionStorage.removeItem("token");
+  location.href = `${CONFIG.COGNITO_DOMAIN}/logout?client_id=${CONFIG.CLIENT_ID}&logout_uri=${encodeURIComponent(REDIRECT)}`;
+}
+
+// Small helper to build HTML safely (text is never treated as code).
+function el(tag, props = {}, children = []) {
+  const e = document.createElement(tag);
+  Object.assign(e, props);
+  for (const c of [].concat(children)) if (c !== null && c !== undefined && c !== "") e.append(c);
+  return e;
+}
+
+function setStatus(node, text, kind = "") {
+  node.textContent = text;
+  node.className = node.className.replace(/\b(ok|error)\b/g, "").trim() + (kind ? " " + kind : "");
+}
+
+async function api(method, path, body) {
+  const res = await fetch(CONFIG.API_URL + path, {
+    method,
+    headers: { "Authorization": "Bearer " + token, "Content-Type": "application/json" },
+    body: body ? JSON.stringify(body) : undefined
+  });
+  if (res.status === 401) { alert("Your session has expired. Please sign in again."); logout(); }
+  const data = await res.json().catch(() => ({}));
+  if (!res.ok) throw new Error(data.error || data.message || ("Error " + res.status));
+  return data;
+}
+
+async function upload() {
+  const f = $("file").files[0], msg = $("uploadMsg"), btn = $("uploadBtn");
+  if (!myGroups.length) { setStatus(msg, "Create or join a group first.", "error"); return; }
+  if (!f || !$("title").value.trim()) { setStatus(msg, "Add a title and choose a file first.", "error"); return; }
+  btn.disabled = true;
+  try {
+    setStatus(msg, "Preparing upload...");
+    const r = await api("POST", "/notes", {
+      title: $("title").value.trim(), groupId: $("uploadGroup").value, subject: $("subject").value, unit: $("unit").value,
+      semester: $("semester").value, fileName: f.name, fileSize: f.size
+    });
+    setStatus(msg, "Uploading...");
+    const put = await fetch(r.uploadUrl, { method: "PUT", headers: { "Content-Type": r.contentType }, body: f });
+    if (!put.ok) throw new Error("Upload failed (" + put.status + ")");
+    setStatus(msg, "Uploaded. It will appear in search in about a minute, once processing finishes.", "ok");
+    $("title").value = ""; $("unit").value = ""; $("semester").value = ""; $("file").value = "";
+  } catch (e) { setStatus(msg, e.message, "error"); }
+  btn.disabled = false;
+}
+
+async function search(mode) {
+  const box = $("results");
+  lastMode = mode;
+  if (!myGroups.length) {
+    $("resultsTitle").textContent = "Notes"; $("resultsCount").textContent = "";
+    box.replaceChildren(el("div", { className: "empty",
+      textContent: "You're not in any groups yet. Create a group, or join one with an invite code, to see notes." }));
+    return;
+  }
+  let q = "", title = "Recent notes";
+  if (mode === "tag") {
+    const t = $("tag").value.trim();
+    if (!t) { return search("recent"); }
+    q = "?tag=" + encodeURIComponent(t); title = `Notes on "${t}"`;
+  } else if (mode === "subject") {
+    q = "?subject=" + encodeURIComponent($("browseSubject").value); title = $("browseSubject").value;
+  }
+  $("resultsTitle").textContent = title;
+  $("resultsCount").textContent = "";
+  box.replaceChildren(el("div", { className: "empty", textContent: "Loading..." }));
+  try {
+    const group = $("searchGroup").value;
+    if (group) q += (q ? "&" : "?") + "group=" + encodeURIComponent(group);
+    const notes = await api("GET", "/notes" + q);
+    $("resultsCount").textContent = notes.length === 1 ? "1 note" : notes.length + " notes";
+    box.replaceChildren(...(notes.length ? notes.map(noteRow)
+      : [el("div", { className: "empty", textContent: "No notes found." })]));
+  } catch (e) {
+    box.replaceChildren(el("div", { className: "empty", textContent: e.message }));
+  }
+}
+
+function noteRow(n) {
+  const extra = el("div", { className: "note-extra" });
+  const showMsg = (text, isError) => extra.replaceChildren(el("div", { className: "note-msg" + (isError ? " error" : ""), textContent: text }));
+
+  const meta = [myGroups.length > 1 ? n.groupName : "", n.subject, n.unit && n.unit !== "-" ? "Unit " + n.unit : "", "Opened " + (n.downloads || 0) + " times"]
+    .filter(Boolean).join("  ·  ");
+
+  const open = el("button", { className: "btn-link", textContent: "Open file", onclick: async () => {
+    const win = window.open("", "_blank");   // open now so pop-up blockers allow it
+    showMsg("Opening...");
+    try {
+      const d = await api("GET", "/notes/" + n.noteId);
+      if (win) win.location = d.fileUrl; else window.open(d.fileUrl, "_blank");
+      extra.replaceChildren();
+      if (d.audioUrl) extra.append(el("div", { className: "extra-label", textContent: "Audio version" }),
+                                   el("audio", { controls: true, src: d.audioUrl }));
+    } catch (e) { if (win) win.close(); showMsg(e.message, true); }
+  }});
+
+  const lang = el("select", {}, LANGUAGES.map(([code, name]) => el("option", { value: code, textContent: name })));
+  lang.setAttribute("aria-label", "Language for text and audio");
+  const translate = el("button", { className: "btn-link", textContent: "Show text and audio", onclick: async () => {
+    showMsg(lang.value === "en" ? "Loading..." : "Translating...");
+    try {
+      const code = lang.value;
+      const d = await api("GET", `/notes/${n.noteId}/translate?lang=${code}`);
+      extra.replaceChildren(el("div", { className: "extra-label", textContent: d.language }),
+                            el("div", { className: "translation", textContent: d.text }),
+                            listenControl(d, code));
+    } catch (e) { showMsg(e.message, true); }
+  }});
+
+  const actions = el("div", { className: "actions" }, [open, el("span", { className: "sep" }), lang, translate]);
+  if (n.canModerate) {
+    actions.append(el("span", { className: "sep" }));
+    [["verify", "Mark verified", ""], ["hide", "Hide", " danger"]].forEach(([action, label, cls]) => {
+      actions.append(el("button", { className: "btn-link" + cls, textContent: label, onclick: async () => {
+        if (action === "hide" && !confirm("Hide this note from everyone in the group?")) return;
+        try {
+          await api("POST", `/notes/${n.noteId}/${action}`);
+          showMsg(action === "verify" ? "Marked as verified." : "Hidden from the group.");
+        } catch (e) { showMsg(e.message, true); }
+      }}));
+    });
+  }
+
+  return el("article", { className: "note" }, [
+    el("div", { className: "note-title" }, [
+      el("strong", { textContent: n.title || "Untitled" }),
+      n.verified ? el("span", { className: "verified", textContent: "Verified" }) : ""
+    ]),
+    el("div", { className: "meta", textContent: meta }),
+    (n.tags || []).length ? el("div", { className: "tags" }, n.tags.slice(0, 10).map((t) =>
+      el("span", { className: "tag", textContent: t, title: "Search " + t,
+                   onclick: () => { $("tag").value = t; search("tag"); } }))) : "",
+    actions,
+    extra
+  ]);
+}
+
+async function loadGroups() {
+  try { myGroups = await api("GET", "/groups"); }
+  catch (e) { setStatus($("groupMsg"), e.message, "error"); myGroups = []; }
+  renderGroups();
+}
+
+function renderGroups() {
+  const list = $("groupList");
+  list.replaceChildren(...myGroups.map(groupRow));
+  $("groupForms").classList.toggle("first", !myGroups.length);
+
+  const fill = (select, withAll) => {
+    const keep = select.value;
+    select.replaceChildren(...(withAll ? [el("option", { value: "", textContent: "All my groups" })] : []),
+      ...myGroups.map((g) => el("option", { value: g.groupId, textContent: g.name })));
+    if ([...select.options].some((o) => o.value === keep)) select.value = keep;
+  };
+  fill($("uploadGroup"), false);
+  fill($("searchGroup"), true);
+  $("searchGroup").hidden = myGroups.length < 2;
+}
+
+function groupRow(g) {
+  const members = el("div", { className: "members" });
+  let open = false;
+  const toggle = el("button", { className: "btn-link", textContent: "Members", onclick: async () => {
+    open = !open;
+    if (!open) { members.replaceChildren(); return; }
+    members.replaceChildren(el("div", { className: "note-msg", textContent: "Loading..." }));
+    try {
+      const people = await api("GET", `/groups/${g.groupId}/members`);
+      members.replaceChildren(...people.map((m) => el("div", { className: "member" }, [
+        el("span", { textContent: m.email || "Member" }),
+        m.role === "admin" ? el("span", { textContent: "Admin" })
+          : g.role === "admin" ? el("button", { className: "btn-link danger", textContent: "Remove", onclick: async () => {
+              if (!confirm(`Remove ${m.email} from ${g.name}?`)) return;
+              try { setStatus($("groupMsg"), (await api("POST", `/groups/${g.groupId}/remove`, { sub: m.sub })).message, "ok");
+                    open = false; toggle.click(); }
+              catch (e) { setStatus($("groupMsg"), e.message, "error"); }
+            }})
+          : el("span", { textContent: "" })
+      ])));
+    } catch (e) { members.replaceChildren(el("div", { className: "note-msg error", textContent: e.message })); }
+  }});
+
+  const links = el("div", { className: "group-links" }, [toggle]);
+  if (g.role !== "admin") {
+    links.append(el("button", { className: "btn-link danger", textContent: "Leave", onclick: async () => {
+      if (!confirm(`Leave ${g.name}? You'll stop seeing its notes.`)) return;
+      try {
+        setStatus($("groupMsg"), (await api("POST", `/groups/${g.groupId}/leave`)).message, "ok");
+        await loadGroups(); search("recent");
+      } catch (e) { setStatus($("groupMsg"), e.message, "error"); }
+    }}));
+  }
+
+  const copy = g.code ? el("button", { className: "btn-link", textContent: "Copy", onclick: async (ev) => {
+    try { await navigator.clipboard.writeText(g.code); ev.target.textContent = "Copied"; }
+    catch { ev.target.textContent = "Select and copy"; }
+    setTimeout(() => { ev.target.textContent = "Copy"; }, 1500);
+  }}) : "";
+
+  return el("div", { className: "group" }, [
+    el("div", { className: "group-top" }, [
+      el("span", { className: "group-name", textContent: g.name }),
+      el("span", { className: "group-role", textContent: g.role === "admin" ? "Admin" : "Member" })
+    ]),
+    g.code ? el("div", { className: "group-code" }, ["Invite code", el("code", { textContent: g.code }), copy]) : "",
+    links,
+    members
+  ]);
+}
+
+async function createGroup() {
+  const name = $("groupName").value.trim(), msg = $("groupMsg");
+  if (!name) { $("groupName").focus(); return; }
+  try {
+    const g = await api("POST", "/groups", { name });
+    $("groupName").value = "";
+    setStatus(msg, `Created ${g.name}. Share the invite code ${g.code} with your classmates.`, "ok");
+    await loadGroups(); search("recent");
+  } catch (e) { setStatus(msg, e.message, "error"); }
+}
+
+async function joinGroup() {
+  const code = $("joinCode").value.trim(), msg = $("groupMsg");
+  if (!code) { $("joinCode").focus(); return; }
+  try {
+    const g = await api("POST", "/groups/join", { code });
+    $("joinCode").value = "";
+    setStatus(msg, `You're in ${g.name}.`, "ok");
+    await loadGroups(); search("recent");
+  } catch (e) { setStatus(msg, e.message, "error"); }
+}
+
+// Hindi comes back as an MP3 from Polly; Telugu and Tamil use the browser's own voice.
+const SPEECH_LANG = { en: "en-IN", hi: "hi-IN", te: "te-IN", ta: "ta-IN" };
+
+function browserVoice(code) {
+  if (!("speechSynthesis" in window)) return null;
+  const want = SPEECH_LANG[code].toLowerCase();
+  return speechSynthesis.getVoices().find((v) => v.lang.toLowerCase().replace("_", "-") === want)
+      || speechSynthesis.getVoices().find((v) => v.lang.toLowerCase().startsWith(code)) || null;
+}
+
+function listenControl(d, code) {
+  const box = el("div", { className: "listen" });
+  if (d.audioUrl) {
+    box.append(el("audio", { controls: true, src: d.audioUrl }));
+    return box;
+  }
+  const status = el("span", { className: "note-msg" });
+  const button = el("button", { className: "btn-link", textContent: "Listen", onclick: () => {
+    if (speechSynthesis.speaking) { speechSynthesis.cancel(); button.textContent = "Listen"; return; }
+    const voice = browserVoice(code);
+    if (!voice) {
+      status.textContent = `This device doesn't have a ${d.language} voice. Try Chrome on an Android phone, or add one in your system's speech settings.`;
+      return;
+    }
+    const speech = new SpeechSynthesisUtterance(d.text.slice(0, 4000));
+    speech.voice = voice; speech.lang = voice.lang;
+    speech.onend = () => { button.textContent = "Listen"; };
+    speechSynthesis.speak(speech);
+    button.textContent = "Stop";
+  }});
+  box.append(button, status);
+  return box;
+}
+if ("speechSynthesis" in window) speechSynthesis.getVoices();   // voices load in the background
+
+async function chat() {
+  const text = $("chatInput").value.trim();
+  if (!text) return;
+  const log = $("chatLog");
+  const add = (who, cls, msg) => {
+    log.append(el("div", { className: "msg " + cls }, [el("span", { className: "who", textContent: who }),
+                                                      el("span", { className: "text", textContent: msg })]));
+    log.scrollTop = log.scrollHeight;
+  };
+  add("You", "you", text);
+  $("chatInput").value = "";
+  try { add("Assistant", "bot", (await api("POST", "/chat", { message: text })).reply); }
+  catch (e) { add("Assistant", "bot", e.message); }
+}
+
+async function follow() {
+  const subjects = [...document.querySelectorAll("#follow input:checked")].map((c) => c.value);
+  const msg = $("followMsg");
+  if (!subjects.length) { setStatus(msg, "Select at least one subject.", "error"); return; }
+  try { setStatus(msg, (await api("POST", "/subscriptions", { subjects })).message, "ok"); }
+  catch (e) { setStatus(msg, e.message, "error"); }
+}
+
+// Fill the dropdowns and checkboxes, then show the right screen.
+CONFIG.SUBJECTS.forEach((s) => {
+  $("subject").append(el("option", { value: s, textContent: s }));
+  $("browseSubject").append(el("option", { value: s, textContent: s }));
+  $("follow").append(el("label", {}, [el("input", { type: "checkbox", value: s }), s]));
+});
+if (token) {
+  $("loggedOut").hidden = true;
+  $("app").hidden = false;
+  $("who").append(el("span", { textContent: user.email }),
+    el("button", { className: "btn-quiet", textContent: "Sign out", onclick: logout }));
+  loadGroups().then(() => search("recent"));
+}
+</script>
+</body>
+</html>
